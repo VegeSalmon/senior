@@ -41,7 +41,7 @@ export default function Hero() {
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ duration: 0.6, ease: "backOut" }}
-                    className="mb-8 flex items-center gap-3 bg-white px-6 py-3 rounded-full border-2 border-purple/30 shadow-medium"
+                    className="opacity-0 mb-8 flex items-center gap-3 bg-white px-6 py-3 rounded-full border-2 border-purple/30 shadow-medium"
                 >
                     <Heart className="w-6 h-6 text-coral" />
                     <span className="font-display font-semibold text-graphite">Senior Support System</span>
@@ -53,7 +53,7 @@ export default function Hero() {
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-graphite mb-6 leading-tight"
+                    className="opacity-0 text-5xl md:text-7xl lg:text-8xl font-display font-bold text-graphite mb-6 leading-tight"
                 >
                     Wspieramy Seniorów.{" "}
                     <span className="text-gradient-purple">
@@ -66,7 +66,7 @@ export default function Hero() {
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.4, duration: 0.8 }}
-                    className="text-xl md:text-2xl text-graphite/80 mb-12 max-w-3xl font-sans leading-relaxed"
+                    className="opacity-0 text-xl md:text-2xl text-graphite/80 mb-12 max-w-3xl font-sans leading-relaxed"
                 >
                     Innowacyjny system wsparcia dla seniorów, który łączy technologię z ludzką empatią.
                     Pomagamy starszym osobom żyć samodzielnie i bezpiecznie.
@@ -77,7 +77,7 @@ export default function Hero() {
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.6, duration: 0.8 }}
-                    className="flex flex-col sm:flex-row gap-4 items-center"
+                    className="opacity-0 flex flex-col sm:flex-row gap-4 items-center"
                 >
                     <button className="btn-primary">
                         Dowiedz się więcej
@@ -92,7 +92,7 @@ export default function Hero() {
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.8, duration: 0.8 }}
-                    className="mt-16 grid grid-cols-3 gap-8 md:gap-16"
+                    className="opacity-0 mt-16 grid grid-cols-3 gap-8 md:gap-16"
                 >
                     {[
                         { number: "100+", label: "Seniorów" },
@@ -116,7 +116,7 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+                className="opacity-0 absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
             >
                 <span className="text-xs uppercase tracking-widest text-graphite/60 font-accent">Przewiń w dół</span>
                 <motion.div
