@@ -40,7 +40,7 @@
   --shadow-glass: 0 8px 32px 0 rgba(107, 70, 193, 0.12);
 }
 
-/* Keyframes - Moved outside @theme to avoid parsing issues */
+/* Keyframes */
 @keyframes blob {
   0% {
     transform: translate(0px, 0px) scale(1);
@@ -146,61 +146,8 @@
     @apply hover:bg-purple hover:text-cream hover:shadow-lg hover:scale-105 active:scale-95;
   }
 
-  .floating-shape {
-    @apply absolute rounded-full opacity-10 pointer-events-none;
-    animation: float 8s ease-in-out infinite;
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
   }
-}
-
-/* Base Styles */
-:root {
-  --background: #FFF8F0;
-  --foreground: #2C3E50;
-}
-
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-::selection {
-  background-color: var(--color-coral);
-  color: var(--color-cream);
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-cream);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-purple);
-  border-radius: 5px;
-  border: 2px solid var(--color-cream);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-coral);
-}
-
-/* Smooth Scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Animation Delays */
-.animation-delay-2000 {
-  animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-  animation-delay: 4s;
 }

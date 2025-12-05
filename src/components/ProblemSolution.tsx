@@ -65,105 +65,106 @@ export default function ProblemSolution() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-                    {/* Problems Side */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-8">
+                    {/* Problems Header */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="space-y-6"
+                        className="lg:col-start-1 lg:row-start-1 flex items-center gap-3 mb-4 lg:mb-8"
                     >
-                        <div className="flex items-center gap-3 mb-8">
-                            <div className="w-12 h-12 rounded-full bg-coral/20 flex items-center justify-center">
-                                <AlertCircle className="w-6 h-6 text-coral" />
-                            </div>
-                            <h3 className="text-3xl font-display font-bold text-graphite">Wyzwania</h3>
+                        <div className="w-12 h-12 rounded-full bg-coral/20 flex items-center justify-center">
+                            <AlertCircle className="w-6 h-6 text-coral" />
                         </div>
-
-                        {problems.map((problem, index) => {
-                            const Icon = problem.icon;
-                            return (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="glass-panel p-6 border-coral/30 hover:border-coral/50 transition-all duration-300"
-                                >
-                                    <div className="flex flex-col items-center text-center gap-4">
-                                        <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-coral to-coral-light flex items-center justify-center text-white font-display font-bold text-2xl shadow-soft flex-shrink-0">
-                                            {problem.stat}
-                                        </div>
-                                        <div className="flex-1 flex flex-col justify-center">
-                                            <div className="flex items-center justify-center gap-2 mb-2">
-                                                <Icon className="w-5 h-5 text-coral" />
-                                                <h4 className="font-display font-bold text-graphite text-lg">{problem.title}</h4>
-                                            </div>
-                                            <p className="text-graphite/70">{problem.description}</p>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            );
-                        })}
+                        <h3 className="text-3xl font-display font-bold text-graphite">Wyzwania</h3>
                     </motion.div>
 
-                    {/* Solutions Side */}
+                    {/* Problems List */}
+                    {problems.map((problem, index) => {
+                        const Icon = problem.icon;
+                        // Tailwind needs static classes to scan them
+                        const rowClasses = ["lg:row-start-2", "lg:row-start-3", "lg:row-start-4"];
+                        return (
+                            <motion.div
+                                key={`problem-${index}`}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className={`lg:col-start-1 ${rowClasses[index]} glass-panel p-6 border-coral/30 hover:border-coral/50 transition-all duration-300 h-full`}
+                            >
+                                <div className="flex flex-col items-center text-center gap-4 h-full">
+                                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-coral to-coral-light flex items-center justify-center text-white font-display font-bold text-2xl shadow-soft flex-shrink-0">
+                                        {problem.stat}
+                                    </div>
+                                    <div className="flex-1 flex flex-col justify-center">
+                                        <div className="flex items-center justify-center gap-2 mb-2">
+                                            <Icon className="w-5 h-5 text-coral" />
+                                            <h4 className="font-display font-bold text-graphite text-lg">{problem.title}</h4>
+                                        </div>
+                                        <p className="text-graphite/70">{problem.description}</p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
+
+                    {/* Solutions Header */}
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="space-y-6"
+                        className="lg:col-start-2 lg:row-start-1 flex items-center gap-3 mb-4 lg:mb-8"
                     >
-                        <div className="flex items-center gap-3 mb-8">
-                            <div className="w-12 h-12 rounded-full bg-mint/20 flex items-center justify-center">
-                                <CheckCircle className="w-6 h-6 text-mint" />
-                            </div>
-                            <h3 className="text-3xl font-display font-bold text-graphite">Nasze Rozwiązania</h3>
+                        <div className="w-12 h-12 rounded-full bg-mint/20 flex items-center justify-center">
+                            <CheckCircle className="w-6 h-6 text-mint" />
                         </div>
+                        <h3 className="text-3xl font-display font-bold text-graphite">Nasze Rozwiązania</h3>
+                    </motion.div>
 
-                        {solutions.map((solution, index) => {
-                            const Icon = solution.icon;
-                            return (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: 0.2 + index * 0.1 }}
-                                    className="glass-panel p-6 border-mint/30 hover:border-mint/50 transition-all duration-300 group hover:-translate-y-1"
-                                >
-                                    <div className="flex flex-col items-center text-center gap-4">
-                                        <motion.div
-                                            whileHover={{ rotate: 360 }}
-                                            transition={{ duration: 0.6 }}
-                                            className="w-16 h-16 rounded-2xl bg-gradient-to-br from-mint to-mint-light flex items-center justify-center shadow-soft group-hover:shadow-medium transition-shadow flex-shrink-0"
-                                        >
-                                            <Icon className="w-8 h-8 text-white" />
-                                        </motion.div>
-                                        <div className="flex-1 flex flex-col justify-center">
-                                            <h4 className="font-display font-bold text-graphite text-lg mb-2">{solution.title}</h4>
-                                            <p className="text-graphite/70">{solution.description}</p>
-                                        </div>
+                    {/* Solutions List */}
+                    {solutions.map((solution, index) => {
+                        const Icon = solution.icon;
+                        const rowClasses = ["lg:row-start-2", "lg:row-start-3", "lg:row-start-4"];
+                        return (
+                            <motion.div
+                                key={`solution-${index}`}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 + index * 0.1 }}
+                                className={`lg:col-start-2 ${rowClasses[index]} glass-panel p-6 border-mint/30 hover:border-mint/50 transition-all duration-300 group hover:-translate-y-1 h-full`}
+                            >
+                                <div className="flex flex-col items-center text-center gap-4 h-full">
+                                    <motion.div
+                                        whileHover={{ rotate: 360 }}
+                                        transition={{ duration: 0.6 }}
+                                        className="w-16 h-16 rounded-2xl bg-gradient-to-br from-mint to-mint-light flex items-center justify-center shadow-soft group-hover:shadow-medium transition-shadow flex-shrink-0"
+                                    >
+                                        <Icon className="w-8 h-8 text-white" />
+                                    </motion.div>
+                                    <div className="flex-1 flex flex-col justify-center">
+                                        <h4 className="font-display font-bold text-graphite text-lg mb-2">{solution.title}</h4>
+                                        <p className="text-graphite/70">{solution.description}</p>
                                     </div>
-                                </motion.div>
-                            );
-                        })}
+                                </div>
+                            </motion.div>
+                        );
+                    })}
 
-                        {/* CTA */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.6 }}
-                            className="pt-6"
-                        >
-                            <button className="btn-primary w-full">
-                                Zobacz jak to działa
-                            </button>
-                        </motion.div>
+                    {/* CTA */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.6 }}
+                        className="lg:col-start-1 lg:col-span-2 lg:row-start-5 pt-6 flex justify-center"
+                    >
+                        <button className="btn-primary w-full md:w-auto md:px-12">
+                            Zobacz jak to działa
+                        </button>
                     </motion.div>
                 </div>
             </div>

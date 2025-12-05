@@ -126,8 +126,8 @@ export default function Impact() {
                     })}
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    {/* Map Placeholder */}
+                <div className="flex justify-center">
+                    {/* Map Placeholder - HIDDEN TEMPORARILY
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -153,13 +153,14 @@ export default function Impact() {
                             ))}
                         </div>
                     </motion.div>
+                    */}
 
                     {/* Testimonials Carousel */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="glass-panel p-8 border-coral/30 relative overflow-hidden"
+                        className="glass-panel p-8 border-coral/30 relative overflow-hidden max-w-3xl w-full"
                     >
                         <h3 className="text-2xl font-display font-bold text-graphite mb-8 flex items-center gap-3">
                             <Heart className="w-6 h-6 text-coral" />

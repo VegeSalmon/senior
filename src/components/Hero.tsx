@@ -17,7 +17,7 @@ export default function Hero() {
     return (
         <section
             ref={containerRef}
-            className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-cream"
+            className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-cream transition-colors duration-300"
         >
             {/* Dynamic Background Blobs - keeping user's preference */}
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
