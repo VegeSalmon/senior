@@ -1,71 +1,166 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Code, Wrench, Heart } from "lucide-react";
+import { User, Code, Wrench, Heart, Sparkles } from "lucide-react";
 
 const team = [
     {
-        name: "Piotr",
-        role: "Founder & Lead",
+        name: "Piotr Nowak",
+        role: "Założyciel & Lider projektu",
+        passion: "Pasjonat technologii i pomocy seniorom",
         icon: <User className="w-8 h-8" />,
-        color: "from-tech-primary to-tech-secondary",
+        color: "from-purple to-purple-light",
+        size: "large" // Featured member
     },
     {
-        name: "Team Member",
-        role: "Engineering",
-        icon: <Code className="w-8 h-8" />,
-        color: "from-tech-secondary to-tech-accent",
+        name: "Anna Kowalska",
+        role: "Programistka",
+        passion: "Tworzy intuicyjne interfejsy",
+        icon: <Code className="w-6 h-6" />,
+        color: "from-coral to-coral-light",
+        size: "medium"
     },
     {
-        name: "Team Member",
-        role: "Hardware",
-        icon: <Wrench className="w-8 h-8" />,
-        color: "from-tech-accent to-blue-400",
+        name: "Marek Wiśniewski",
+        role: "Inżynier Hardware",
+        passion: "Projektuje system dozowania leków",
+        icon: <Wrench className="w-6 h-6" />,
+        color: "from-mint to-mint-light",
+        size: "medium"
     },
     {
-        name: "Team Member",
-        role: "Care Specialist",
-        icon: <Heart className="w-8 h-8" />,
-        color: "from-blue-400 to-cyan-300",
+        name: "Kasia Lewandowska",
+        role: "Koordynatorka Wsparcia",
+        passion: "Łączy seniorów z wolontariuszami",
+        icon: <Heart className="w-6 h-6" />,
+        color: "from-coral to-purple",
+        size: "medium"
+    },
+    {
+        name: "Tomasz Zieliński",
+        role: "Designer UX",
+        passion: "Projektuje z myślą o seniorach",
+        icon: <Sparkles className="w-6 h-6" />,
+        color: "from-purple to-mint",
+        size: "small"
     },
 ];
 
 export default function Team() {
     return (
-        <section className="relative py-32 px-6 md:px-12 bg-tech-bg">
-            <div className="max-w-7xl mx-auto">
-                <motion.h2
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+        <section id="team" className="relative py-24 md:py-32 px-6 md:px-12 bg-cream overflow-hidden">
+            {/* Background */}
+            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-coral/5 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="max-w-7xl mx-auto relative z-10">
+                {/* Section Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-5xl md:text-7xl font-display font-bold text-white mb-16 text-right"
+                    className="text-center mb-16"
                 >
-                    THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-tech-secondary to-tech-primary">TEAM</span>
-                </motion.h2>
+                    <h2 className="text-4xl md:text-6xl font-display font-bold text-graphite mb-4">
+                        Nasz <span className="text-gradient-purple">Zespół</span>
+                    </h2>
+                    <p className="text-xl text-graphite/70 max-w-2xl mx-auto mb-6">
+                        Grupa pasjonatów, która wierzy w siłę technologii i ludzkiej empatii
+                    </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {team.map((member, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="group relative"
-                        >
-                            <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-xl blur-xl"
-                                style={{ background: `linear-gradient(to bottom right, var(--color-tech-primary), var(--color-tech-secondary))` }} />
+                    {/* Camp Badge */}
+                    <motion.div
+                        initial={{ scale: 0 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ type: "spring", delay: 0.3 }}
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-coral to-coral-light text-white px-6 py-3 rounded-full shadow-medium font-display font-semibold"
+                    >
+                        <Heart className="w-5 h-5" />
+                        Made with ❤️ podczas obozu naukowego
+                    </motion.div>
+                </motion.div>
 
-                            <div className="glass-panel p-8 h-full relative z-10 border-tech-primary/10 hover:border-tech-primary/50 transition-all duration-300 hover:-translate-y-2">
-                                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${member.color} flex items-center justify-center mb-6 text-tech-bg shadow-[0_0_20px_rgba(100,255,218,0.3)] group-hover:scale-110 transition-transform duration-300`}>
-                                    {member.icon}
+                {/* Asymmetric Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
+                    {team.map((member, index) => {
+                        // Asymmetric sizing
+                        const sizeClasses = {
+                            large: "md:col-span-2 md:row-span-2",
+                            medium: "md:col-span-1",
+                            small: "md:col-span-1"
+                        };
+
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className={`group relative ${sizeClasses[member.size as keyof typeof sizeClasses]}`}
+                            >
+                                <div className="glass-panel p-8 h-full border-purple/20 hover:border-purple/50 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
+                                    {/* Hover Gradient Overlay */}
+                                    <div className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+
+                                    {/* Content */}
+                                    <div className="relative z-10 flex flex-col h-full">
+                                        {/* Icon/Avatar */}
+                                        <div className={`${member.size === 'large' ? 'w-24 h-24 mb-6' : 'w-16 h-16 mb-4'} rounded-2xl bg-gradient-to-br ${member.color} flex items-center justify-center text-white shadow-soft group-hover:shadow-medium group-hover:scale-110 transition-all duration-300`}>
+                                            {member.icon}
+                                        </div>
+
+                                        {/* Info */}
+                                        <div className="flex-1">
+                                            <h3 className={`${member.size === 'large' ? 'text-3xl' : 'text-xl'} font-display font-bold text-graphite mb-2`}>
+                                                {member.name}
+                                            </h3>
+                                            <p className={`${member.size === 'large' ? 'text-lg' : 'text-sm'} text-purple font-display font-semibold mb-3`}>
+                                                {member.role}
+                                            </p>
+
+                                            {/* Passion - revealed on hover */}
+                                            <div className="overflow-hidden">
+                                                <motion.p
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    className={`${member.size === 'large' ? 'text-base' : 'text-sm'} text-graphite/70 italic opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                                                >
+                                                    "{member.passion}"
+                                                </motion.p>
+                                            </div>
+                                        </div>
+
+                                        {/* Placeholder for photo */}
+                                        {member.size === 'large' && (
+                                            <div className="mt-6 aspect-[4/3] bg-gradient-to-br from-purple/10 to-coral/10 rounded-xl flex items-center justify-center border border-purple/20 group-hover:border-purple/40 transition-colors">
+                                                <p className="text-graphite/40 text-sm font-display">Zdjęcie zespołu</p>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                                <p className="text-tech-muted text-sm uppercase tracking-wider">{member.role}</p>
-                            </div>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        );
+                    })}
                 </div>
+
+                {/* Additional Info */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-16 text-center"
+                >
+                    <p className="text-graphite/70 text-lg mb-6">
+                        <strong className="text-purple font-display">Lorem ipsum dolor sit amet</strong>, consectetur adipiscing elit.
+                        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                    </p>
+                    <button className="btn-secondary">
+                        Poznaj nas lepiej
+                    </button>
+                </motion.div>
             </div>
         </section>
     );

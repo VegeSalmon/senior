@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Heart, Users } from "lucide-react";
 
 export default function Hero() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -16,69 +17,97 @@ export default function Hero() {
     return (
         <section
             ref={containerRef}
-            className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-tech-bg"
+            className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-cream"
         >
-            {/* Dynamic Background Blobs */}
+            {/* Dynamic Background Blobs - keeping user's preference */}
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="blob-shape bg-tech-primary w-[500px] h-[500px] top-[-100px] left-[-100px]" />
-                <div className="blob-shape bg-tech-secondary w-[400px] h-[400px] top-[20%] right-[-100px] animation-delay-2000" />
-                <div className="blob-shape bg-tech-accent w-[600px] h-[600px] bottom-[-200px] left-[20%] animation-delay-4000" />
+                <div className="blob-shape bg-purple w-[500px] h-[500px] top-[-100px] left-[-100px]" />
+                <div className="blob-shape bg-coral w-[400px] h-[400px] top-[20%] right-[-100px] animation-delay-2000" />
+                <div className="blob-shape bg-mint w-[600px] h-[600px] bottom-[-200px] left-[20%] animation-delay-4000" />
             </div>
 
-            {/* Grid Overlay */}
-            <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+            {/* Floating Shapes */}
+            <div className="absolute top-20 right-20 w-16 h-16 rounded-full bg-purple/10 floating-shape" />
+            <div className="absolute bottom-40 left-10 w-24 h-24 rounded-full bg-coral/10 floating-shape" style={{ animationDelay: '1s' }} />
+            <div className="absolute top-1/3 right-1/4 w-12 h-12 rounded-full bg-mint/10 floating-shape" style={{ animationDelay: '2s' }} />
 
             {/* Main Content */}
             <motion.div
                 style={{ y, opacity }}
-                className="relative z-10 flex flex-col items-center text-center px-4"
+                className="relative z-10 flex flex-col items-center text-center px-4 max-w-6xl mx-auto"
             >
+                {/* Icon Badge */}
                 <motion.div
-                    initial={{ scale: 0.8, opacity: 0, filter: "blur(10px)" }}
-                    animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
-                    className="relative"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.6, ease: "backOut" }}
+                    className="mb-8 flex items-center gap-3 bg-white px-6 py-3 rounded-full border-2 border-purple/30 shadow-medium"
                 >
-                    <h1 className="text-[20vw] leading-none font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-tech-primary to-tech-secondary select-none drop-shadow-2xl">
-                        SSS
-                    </h1>
-
-                    {/* Glitch/Ghost Effect */}
-                    <motion.h1
-                        className="absolute inset-0 text-[20vw] leading-none font-display font-bold tracking-tighter text-tech-primary opacity-30 select-none pointer-events-none"
-                        animate={{
-                            x: [-2, 2, -2],
-                            y: [1, -1, 1],
-                            opacity: [0.3, 0.1, 0.3]
-                        }}
-                        transition={{
-                            duration: 0.2,
-                            repeat: Infinity,
-                            repeatType: "reverse",
-                            repeatDelay: 3
-                        }}
-                    >
-                        SSS
-                    </motion.h1>
+                    <Heart className="w-6 h-6 text-coral" />
+                    <span className="font-display font-semibold text-graphite">Senior Support System</span>
+                    <Users className="w-6 h-6 text-mint" />
                 </motion.div>
 
-                <motion.div
-                    initial={{ y: 40, opacity: 0 }}
+                {/* Main Headline */}
+                <motion.h1
+                    initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.5, duration: 0.8 }}
-                    className="mt-8 space-y-6 backdrop-blur-sm p-6 rounded-2xl border border-white/5 bg-white/5"
+                    transition={{ delay: 0.2, duration: 0.8 }}
+                    className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-graphite mb-6 leading-tight"
                 >
-                    <div className="flex flex-col md:flex-row items-center gap-4 text-2xl md:text-4xl font-light tracking-widest text-tech-text uppercase">
-                        <span className="text-tech-primary font-bold drop-shadow-[0_0_10px_rgba(100,255,218,0.5)]">Senior</span>
-                        <span className="hidden md:inline text-tech-muted">•</span>
-                        <span className="text-tech-secondary font-bold drop-shadow-[0_0_10px_rgba(0,180,216,0.5)]">Support</span>
-                        <span className="hidden md:inline text-tech-muted">•</span>
-                        <span className="text-tech-accent font-bold drop-shadow-[0_0_10px_rgba(0,119,182,0.5)]">System</span>
-                    </div>
+                    Wspieramy Seniorów.{" "}
+                    <span className="text-gradient-purple">
+                        Łączymy Pokolenia.
+                    </span>
+                </motion.h1>
 
-                    <p className="text-tech-muted text-sm md:text-base tracking-[0.3em] uppercase">
-                        Next Gen Medicine Intelligence
-                    </p>
+                {/* Mission Description */}
+                <motion.p
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.8 }}
+                    className="text-xl md:text-2xl text-graphite/80 mb-12 max-w-3xl font-sans leading-relaxed"
+                >
+                    Innowacyjny system wsparcia dla seniorów, który łączy technologię z ludzką empatią.
+                    Pomagamy starszym osobom żyć samodzielnie i bezpiecznie.
+                </motion.p>
+
+                {/* CTA Buttons */}
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.8 }}
+                    className="flex flex-col sm:flex-row gap-4 items-center"
+                >
+                    <button className="btn-primary">
+                        Dowiedz się więcej
+                    </button>
+                    <button className="btn-secondary">
+                        Dołącz do nas
+                    </button>
+                </motion.div>
+
+                {/* Stats Preview */}
+                <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.8, duration: 0.8 }}
+                    className="mt-16 grid grid-cols-3 gap-8 md:gap-16"
+                >
+                    {[
+                        { number: "100+", label: "Seniorów" },
+                        { number: "50+", label: "Wolontariuszy" },
+                        { number: "1000+", label: "Godzin wsparcia" },
+                    ].map((stat, index) => (
+                        <div key={index} className="text-center">
+                            <div className="text-3xl md:text-4xl font-display font-bold text-gradient-purple mb-2">
+                                {stat.number}
+                            </div>
+                            <div className="text-sm md:text-base text-graphite/70 font-sans">
+                                {stat.label}
+                            </div>
+                        </div>
+                    ))}
                 </motion.div>
             </motion.div>
 
@@ -89,8 +118,12 @@ export default function Hero() {
                 transition={{ delay: 1.5, duration: 1 }}
                 className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
             >
-                <span className="text-[10px] uppercase tracking-widest text-tech-muted">Scroll to Explore</span>
-                <div className="w-[1px] h-16 bg-gradient-to-b from-tech-primary to-transparent" />
+                <span className="text-xs uppercase tracking-widest text-graphite/60 font-accent">Przewiń w dół</span>
+                <motion.div
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="w-[2px] h-16 bg-gradient-to-b from-purple to-transparent"
+                />
             </motion.div>
         </section>
     );
