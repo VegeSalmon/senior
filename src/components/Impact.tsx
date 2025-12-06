@@ -26,20 +26,17 @@ const testimonials = [
     {
         text: "Dzięki SSS nie czuję się już samotna. Moja wolontariuszka dzwoni do mnie codziennie i zawsze mogę na nią liczyć.",
         author: "Maria K.",
-        age: "78 lat",
-        location: "Warszawa"
+        age: "78 lat"
     },
     {
         text: "System przypominający o lekach to prawdziwe błogosławieństwo. Nie muszę się już martwić, że zapomnę o tabletkach.",
         author: "Jan P.",
-        age: "82 lata",
-        location: "Kraków"
+        age: "82 lata"
     },
     {
         text: "Wspaniałe uczucie pomagać starszym osobom. To daje mi ogromną satysfakcję i wiele się uczę od seniorów.",
         author: "Anna M.",
-        age: "Wolontariuszka",
-        location: "Gdańsk"
+        age: "Wolontariuszka"
     },
 ];
 
@@ -198,7 +195,7 @@ export default function Impact() {
                                     </p>
                                     <div>
                                         <p className="font-display font-bold text-graphite">{testimonial.author}</p>
-                                        <p className="text-sm text-graphite/60">{testimonial.age} • {testimonial.location}</p>
+                                        <p className="text-sm text-graphite/60">{testimonial.age}</p>
                                     </div>
                                 </motion.div>
                             ))}

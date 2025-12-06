@@ -57,7 +57,7 @@ export default function About() {
                             {/* Team photo */}
                             <div className="aspect-[4/3] rounded-xl overflow-hidden relative group-hover:shadow-lg transition-shadow duration-500">
                                 <img
-                                    src="/team.jpg"
+                                    src="/senior/team.jpg"
                                     alt="Zespół Senior Support System"
                                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                                 />
