@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Mail, MapPin, Phone } from "lucide-react";
+import { Heart } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -28,9 +28,7 @@ export default function Footer() {
                         <ul className="space-y-2">
                             {[
                                 { label: "O projekcie", href: "#about" },
-                                { label: "Jak to działa", href: "#how-it-works" },
                                 { label: "Zespół", href: "#team" },
-                                { label: "Dołącz do nas", href: "#join-us" },
                             ].map((link, index) => (
                                 <li key={index}>
                                     <a
@@ -44,24 +42,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Contact */}
-                    <div>
-                        <h4 className="font-display font-bold text-lg mb-4">Kontakt</h4>
-                        <ul className="space-y-3">
-                            <li className="flex items-center gap-3 text-cream/70">
-                                <Mail className="w-5 h-5 text-mint" />
-                                <span>kontakt@sss.pl</span>
-                            </li>
-                            <li className="flex items-center gap-3 text-cream/70">
-                                <Phone className="w-5 h-5 text-mint" />
-                                <span>+48 123 456 789</span>
-                            </li>
-                            <li className="flex items-center gap-3 text-cream/70">
-                                <MapPin className="w-5 h-5 text-mint" />
-                                <span>Warszawa, Polska</span>
-                            </li>
-                        </ul>
-                    </div>
+
                 </div>
 
                 {/* Bottom Bar */}

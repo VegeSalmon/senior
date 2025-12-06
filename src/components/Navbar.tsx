@@ -33,9 +33,7 @@ export default function Navbar() {
                                 {item}
                             </button>
                         ))}
-                        <button className="neo-btn bg-neo-accent hover:bg-neo-secondary text-neo-black">
-                            GET WEIRD
-                        </button>
+
                     </div>
 
                     <div className="md:hidden">
@@ -65,9 +63,7 @@ export default function Navbar() {
                                 {item}
                             </button>
                         ))}
-                        <button className="neo-btn bg-neo-accent w-full">
-                            GET WEIRD
-                        </button>
+
                     </div>
                 </div>
             )}

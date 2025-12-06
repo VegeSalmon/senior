@@ -5,27 +5,27 @@ import { Heart, Users, Lightbulb, Shield } from "lucide-react";
 
 const values = [
     {
-        icon: Heart,
-        title: "Empatia",
-        description: "Rozumiemy potrzeby seniorów",
-        color: "coral"
-    },
-    {
-        icon: Users,
-        title: "Wspólnota",
-        description: "Łączymy pokolenia",
-        color: "purple"
-    },
-    {
         icon: Lightbulb,
-        title: "Innowacja",
-        description: "Nowoczesne rozwiązania",
-        color: "mint"
+        title: "Kompleksowość",
+        description: "Łączymy zarządzanie lekami, bezpieczeństwo i opiekę.",
+        color: "coral"
     },
     {
         icon: Shield,
         title: "Bezpieczeństwo",
-        description: "Dbamy o spokój i komfort",
+        description: "SOS, wykrywanie upadków i lokalna sieć pomocy.",
+        color: "purple"
+    },
+    {
+        icon: Users,
+        title: "Niezależność",
+        description: "Działa bez smartfona, wspierając samodzielność.",
+        color: "mint"
+    },
+    {
+        icon: Heart,
+        title: "Empatia",
+        description: "Projekt oparty na badaniach i zrozumieniu potrzeb.",
         color: "purple"
     },
 ];
@@ -54,18 +54,14 @@ export default function About() {
                         className="relative"
                     >
                         <div className="glass-panel p-8 lg:p-12 border-purple/30 relative overflow-hidden group">
-                            {/* Placeholder for team photo */}
-                            <div className="aspect-[4/3] bg-gradient-to-br from-purple/20 via-coral/20 to-mint/20 rounded-xl flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple/10 to-coral/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                <div className="text-center z-10">
-                                    <Users className="w-20 h-20 text-purple/40 mx-auto mb-4" />
-                                    <p className="text-graphite/60 font-display font-semibold">
-                                        Zdjęcie zespołu
-                                    </p>
-                                    <p className="text-sm text-graphite/40 mt-2">
-                                        (do uzupełnienia)
-                                    </p>
-                                </div>
+                            {/* Team photo */}
+                            <div className="aspect-[4/3] rounded-xl overflow-hidden relative group-hover:shadow-lg transition-shadow duration-500">
+                                <img
+                                    src="/team.jpg"
+                                    alt="Zespół Senior Support System"
+                                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-purple/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             </div>
                         </div>
 
@@ -95,15 +91,15 @@ export default function About() {
                             </h2>
                             <div className="space-y-4 text-graphite/80 text-lg leading-relaxed">
                                 <p>
-                                    <strong className="text-purple font-display">Senior Support System</strong> to innowacyjny projekt stworzony z pasją podczas obozu naukowego.
-                                    Naszym celem jest wsparcie seniorów w codziennym życiu poprzez połączenie nowoczesnej technologii z ludzką empatią.
+                                    <strong className="text-purple font-display">Senior Support System</strong> to nie kolejny gadżet, ale kompletne środowisko opieki.
+                                    Rynek oferuje pojedyncze narzędzia, ale żaden system nie łączy ich w tak spójną całość.
                                 </p>
                                 <p>
-                                    Zauważyliśmy, że wiele starszych osób boryka się z samotnością, trudnościami w zarządzaniu lekami i barierami technologicznymi.
-                                    Postanowiliśmy to zmienić, tworząc system, który jest zarówno inteligentny, jak i przyjazny.
+                                    Integrujemy zaawansowane zarządzanie farmakoterapią, funkcje ratunkowe i lokalną sieć pomocy.
+                                    Wszystko to działa cicho i niezawodnie, pozwalając seniorom cieszyć się życiem.
                                 </p>
                                 <p className="text-coral font-semibold">
-                                    Wierzymy, że technologia powinna służyć ludziom, a nie odwrotnie.
+                                    To rozwiązanie zbudowane na solidnych fundamentach badań i analiz.
                                 </p>
                             </div>
                         </motion.div>

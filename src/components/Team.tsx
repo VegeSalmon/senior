@@ -5,43 +5,75 @@ import { User, Code, Wrench, Heart, Sparkles } from "lucide-react";
 
 const team = [
     {
-        name: "Piotr Nowak",
-        role: "Założyciel & Lider projektu",
-        passion: "Pasjonat technologii i pomocy seniorom",
+        name: "Emil Pająk",
+        role: "Główny Zespół",
+        passion: "Twórca projektu",
         icon: <User className="w-8 h-8" />,
         color: "from-purple to-purple-light",
-        size: "large" // Featured member
+        size: "medium"
     },
     {
-        name: "Anna Kowalska",
-        role: "Programistka",
-        passion: "Tworzy intuicyjne interfejsy",
-        icon: <Code className="w-6 h-6" />,
+        name: "Jagoda Sułek",
+        role: "Główny Zespół",
+        passion: "Twórca projektu",
+        icon: <User className="w-8 h-8" />,
         color: "from-coral to-coral-light",
         size: "medium"
     },
     {
-        name: "Marek Wiśniewski",
-        role: "Inżynier Hardware",
-        passion: "Projektuje system dozowania leków",
-        icon: <Wrench className="w-6 h-6" />,
+        name: "Magda Jarosz",
+        role: "Główny Zespół",
+        passion: "Twórca projektu",
+        icon: <User className="w-8 h-8" />,
         color: "from-mint to-mint-light",
         size: "medium"
     },
     {
-        name: "Kasia Lewandowska",
-        role: "Koordynatorka Wsparcia",
-        passion: "Łączy seniorów z wolontariuszami",
-        icon: <Heart className="w-6 h-6" />,
-        color: "from-coral to-purple",
+        name: "Piotr Śpiechowicz",
+        role: "Główny Zespół",
+        passion: "Twórca projektu",
+        icon: <User className="w-8 h-8" />,
+        color: "from-purple to-coral",
         size: "medium"
     },
     {
-        name: "Tomasz Zieliński",
-        role: "Designer UX",
-        passion: "Projektuje z myślą o seniorach",
-        icon: <Sparkles className="w-6 h-6" />,
-        color: "from-purple to-mint",
+        name: "Stanisław Trojan",
+        role: "Główny Zespół",
+        passion: "Twórca projektu",
+        icon: <User className="w-8 h-8" />,
+        color: "from-mint to-purple",
+        size: "medium"
+    },
+    {
+        name: "Kacper Romuk",
+        role: "Główny Zespół",
+        passion: "Twórca projektu",
+        icon: <User className="w-8 h-8" />,
+        color: "from-coral to-mint",
+        size: "medium"
+    },
+    {
+        name: "Łukasz Dziki",
+        role: "Strona i pomoc po projekcie",
+        passion: "Wsparcie techniczne",
+        icon: <Code className="w-6 h-6" />,
+        color: "from-purple to-purple-light",
+        size: "small"
+    },
+    {
+        name: "Jacek Wiaterek",
+        role: "Strona i pomoc po projekcie",
+        passion: "Wsparcie techniczne",
+        icon: <Code className="w-6 h-6" />,
+        color: "from-coral to-coral-light",
+        size: "small"
+    },
+    {
+        name: "Ania Olszak",
+        role: "Ogólna pomoc",
+        passion: "Wsparcie organizacyjne",
+        icon: <Heart className="w-6 h-6" />,
+        color: "from-mint to-mint-light",
         size: "small"
     },
 ];
@@ -64,8 +96,9 @@ export default function Team() {
                     <h2 className="text-4xl md:text-6xl font-display font-bold text-graphite mb-4">
                         Nasz <span className="text-gradient-purple">Zespół</span>
                     </h2>
-                    <p className="text-xl text-graphite/70 max-w-2xl mx-auto mb-6">
-                        Grupa pasjonatów, która wierzy w siłę technologii i ludzkiej empatii
+                    <p className="text-xl text-graphite/70 max-w-3xl mx-auto mb-6">
+                        Projekt tworzy zespół uczestników programu Adamed SmartUP.
+                        Łączymy kompetencje z zakresu programowania, elektroniki, inżynierii i badań społecznych, aby realnie zmienić jakość życia seniorów.
                     </p>
 
                     {/* Camp Badge */}
@@ -152,14 +185,11 @@ export default function Team() {
                     viewport={{ once: true }}
                     className="mt-16 text-center"
                 >
-                    <p className="text-graphite/70 text-lg mb-6">
-                        <strong className="text-purple font-display">Lorem ipsum dolor sit amet</strong>, consectetur adipiscing elit.
-                        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                    <p className="text-graphite/70 text-lg mb-6 max-w-3xl mx-auto">
+                        <strong className="text-purple font-display">Jesteśmy grupą ambitnych innowatorów</strong>, których połączyła chęć niesienia pomocy.
+                        Wierzymy, że technologia powinna służyć człowiekowi, a nie stanowić dla niego barierę.
+                        Nasz projekt to dowód na to, że empatia i inżynieria mogą iść w parze.
                     </p>
-                    <button className="btn-secondary">
-                        Poznaj nas lepiej
-                    </button>
                 </motion.div>
             </div>
         </section>

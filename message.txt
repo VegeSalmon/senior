@@ -1,0 +1,61 @@
+3. Dłuższy opis rozwiązania (systemu)
+
+Senior Support System to środowisko technologiczne, które w sposób kompleksowy wspiera codzienność osób starszych. Jego sercem jest trójwarstwowa konstrukcja:
+
+1. Aplikacja mobilna – intuicyjna, przejrzysta i zaprojektowana dla osób o ograniczonej sprawności cyfrowej. Umożliwia wprowadzenie harmonogramu leków, skanowanie kodów kreskowych oraz automatyczne uzupełnianie informacji o dawkowaniu. Dzięki integracji z rządową bazą leków użytkownik nie musi ręcznie wpisywać składów czy dawek – aplikacja zrobi to za niego, gwarantując poprawność danych.
+(Projekt interfejsu znajduje się w dokumentach Adamed SmartUP, strona 7.)
+
+2. Automatyczny dozownik leków (MVP) – autorski mechanizm oparty na modułowych komorach lekowych, który podaje odpowiednią dawkę o ustalonej godzinie. Konstrukcja została opracowana z myślą o łatwym uzupełnianiu i pełnej eliminacji błędów — zarówno ze strony użytkownika, jak i opiekuna.
+(Diagramy i przekroje dozownika — strony 8–9 raportu.)
+
+3. Opaska ratunkowa z funkcją przypominania – lekka, wygodna i możliwa do noszenia na nadgarstku lub szyi. Wyposażona w moduł wykrywania upadków, silniki wibracyjne, komunikaty głosowe, przycisk SOS oraz możliwość działania bez smartfona. Opaska nie tylko przypomina o lekach, ale może również ostrzec drugiego seniora w lokalnej sieci, jeśli użytkownik potrzebuje pomocy.
+(Projekt techniczny opaski — strona 10.)
+
+Razem tworzą system, który działa cicho, przewidywalnie i niezawodnie — tak, aby senior mógł skupić się na tym, co w życiu najważniejsze.
+
+4. Dłuższy opis korzyści
+
+Senior Support System zmienia codzienność, wprowadzając trzy kluczowe jakości:
+
+1. Pewność i spokój
+
+Dzięki automatycznemu przypominaniu o lekach oraz podawaniu właściwych dawek znika niepewność, która towarzyszy wielu seniorom. Nie trzeba już zastanawiać się, czy tabletka została wzięta — system pamięta za użytkownika.
+
+2. Realne bezpieczeństwo 24/7
+
+Zintegrowane funkcje alarmowe i wykrywanie upadków zapewniają natychmiastową reakcję na potencjalne zagrożenia. W razie potrzeby powiadomienie może trafić do innego seniora w sieci, do opiekuna lub — w przyszłych fazach — do wolontariusza.
+
+3. Zachowanie niezależności
+
+Projekt powstał z myślą o wzmacnianiu samodzielności, nie odbieraniu jej. Senior może żyć tak, jak do tej pory, ale z technologią, która delikatnie monitoruje bezpieczeństwo i wspiera w organizacji dnia.
+
+5. Dłuższy opis unikalności
+
+Rynek oferuje pojedyncze narzędzia: kasetki na leki, smartwatche, panic buttony czy aplikacje. Każde z nich rozwiązuje tylko wycinek problemu. Nie istnieje jednak system, który łączyłby:
+• zaawansowane zarządzanie farmakoterapią,
+• analizę dawkowania i przypomnienia,
+• lokalną sieć pomocy senior-senior,
+• funkcje ratunkowe (SOS i wykrywanie upadku),
+• działanie niezależne od smartfona,
+• modułowy dozownik leków.
+
+To właśnie ta integracja technologii stanowi największą przewagę projektu. Senior Support System nie jest kolejnym gadżetem — jest pełnym środowiskiem opieki i bezpieczeństwa, zbudowanym na podstawie badań, konsultacji i analiz rynkowych.
+
+6. Dłuższa sekcja o zespole
+
+Projekt tworzy zespół uczestników programu Adamed SmartUP — młodych ludzi, którzy postanowili realnie odpowiedzieć na palący problem społeczny. Nasza praca nie jest teoretyczna: przeszliśmy pełny proces projektowy, od empatycznych rozmów z seniorami, przez burze mózgów, prototypowanie mechaniczne i elektroniczne, aż po przygotowanie oprogramowania i wstępnego MVP.
+
+Dzięki wsparciu rady naukowej i partnerów — Adamed Pharma oraz Fundacji Adamed SmartUP — mogliśmy opracować rozwiązanie, które jest zarówno technicznie wykonalne, jak i społecznie potrzebne. Każdy członek zespołu wnosi inną kompetencję: programowanie, elektronikę, projektowanie CAD, druk 3D, badania użytkowników czy opracowywanie koncepcji produktowej.
+
+Razem tworzymy projekt, który może realnie zmienić jakość życia tysięcy osób.
+
+7. Dłuższy opis wizji (future vision)
+
+Senior Support System to początek znacznie szerszej idei. Naszą długoterminową wizją jest stworzenie otwartego, modułowego ekosystemu teleopieki, który obejmie:
+• pełną integrację z urządzeniami medycznymi (glukometry, ciśnieniomierze, pulsoksymetry, inteligentne wagi),
+• automatyczne monitorowanie parametrów zdrowotnych,
+• analizę danych wspierającą profilaktykę,
+• lokalną sieć wolontariuszy reagujących na alerty SOS,
+• chmurową architekturę dostępności z dowolnego miejsca na świecie.
+
+System ma stać się fundamentem technologii, która pozwoli seniorom dłużej zachować niezależność, a rodzinom — żyć w poczuciu pewności i spokoju.

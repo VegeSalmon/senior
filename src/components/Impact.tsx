@@ -2,13 +2,24 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Users, Heart, Clock, MapPin, Quote } from "lucide-react";
+import { Users, Heart, Clock, MapPin, Quote, Shield } from "lucide-react";
 
-const stats = [
-    { icon: Users, number: 150, label: "Seniorów wspieranych", suffix: "+" },
-    { icon: Heart, number: 75, label: "Aktywnych wolontariuszy", suffix: "+" },
-    { icon: Clock, number: 2500, label: "Godzin wsparcia", suffix: "+" },
-    { icon: MapPin, number: 12, label: "Miast w Polsce", suffix: "" },
+const benefits = [
+    {
+        icon: Heart,
+        title: "Pewność i spokój",
+        description: "Koniec z niepewnością. System pamięta o lekach za Ciebie, eliminując stres związany z pominięciem dawki."
+    },
+    {
+        icon: Shield,
+        title: "Bezpieczeństwo 24/7",
+        description: "Zintegrowane czujniki i funkcje alarmowe zapewniają natychmiastową reakcję w razie zagrożenia."
+    },
+    {
+        icon: Users,
+        title: "Niezależność",
+        description: "Projekt wzmacnia samodzielność seniora, dyskretnie czuwając nad jego bezpieczeństwem."
+    },
 ];
 
 const testimonials = [
@@ -90,37 +101,39 @@ export default function Impact() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl md:text-6xl font-display font-bold text-graphite mb-4">
-                        Nasz <span className="text-gradient-coral">Wpływ</span>
+                        Kluczowe <span className="text-gradient-coral">Korzyści</span>
                     </h2>
                     <p className="text-xl text-graphite/70 max-w-2xl mx-auto">
-                        Liczby, które pokazują realną zmianę w życiu seniorów
+                        Jak Senior Support System zmienia codzienność
                     </p>
                 </motion.div>
 
-                {/* Stats Grid */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-                    {stats.map((stat, index) => {
-                        const Icon = stat.icon;
+                {/* Benefits Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                    {benefits.map((benefit, index) => {
+                        const Icon = benefit.icon;
                         return (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="glass-panel p-6 md:p-8 text-center border-purple/30 hover:border-coral/50 transition-all duration-300 group hover:-translate-y-2"
+                                className="glass-panel p-8 text-center border-purple/30 hover:border-coral/50 transition-all duration-300 group hover:-translate-y-2 h-full"
                             >
                                 <motion.div
                                     whileHover={{ rotate: 360 }}
                                     transition={{ duration: 0.6 }}
-                                    className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-coral to-coral-light flex items-center justify-center shadow-soft group-hover:shadow-medium transition-shadow"
+                                    className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-coral to-coral-light flex items-center justify-center shadow-soft group-hover:shadow-medium transition-shadow"
                                 >
-                                    <Icon className="w-8 h-8 text-white" />
+                                    <Icon className="w-10 h-10 text-white" />
                                 </motion.div>
-                                <div className="text-4xl md:text-5xl font-display font-bold text-gradient-purple mb-2">
-                                    <Counter end={stat.number} />{stat.suffix}
-                                </div>
-                                <div className="text-sm md:text-base text-graphite/70 font-sans">{stat.label}</div>
+                                <h3 className="text-2xl font-display font-bold text-graphite mb-4">
+                                    {benefit.title}
+                                </h3>
+                                <p className="text-graphite/70 font-sans leading-relaxed">
+                                    {benefit.description}
+                                </p>
                             </motion.div>
                         );
                     })}

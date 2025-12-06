@@ -7,38 +7,38 @@ const problems = [
     {
         icon: AlertCircle,
         title: "Samotność",
-        stat: "70%",
+        stat: "40%",
         description: "seniorów czuje się osamotniona"
     },
     {
         icon: Smartphone,
         title: "Bariery technologiczne",
-        stat: "65%",
+        stat: "80%",
         description: "ma trudności z nowymi urządzeniami"
     },
     {
         icon: Heart,
         title: "Zarządzanie lekami",
-        stat: "40%",
+        stat: "50%",
         description: "zapomina o przyjęciu leków"
     },
 ];
 
 const solutions = [
     {
-        icon: Users,
-        title: "Łączymy z wolontariuszami",
-        description: "Regularne rozmowy i wsparcie emocjonalne"
-    },
-    {
         icon: Smartphone,
-        title: "Prosty interfejs",
-        description: "Intuicyjna aplikacja dostosowana do seniorów"
+        title: "Aplikacja mobilna",
+        description: "Intuicyjna, z harmonogramem leków i skanerem kodów. Integruje się z bazą leków."
     },
     {
         icon: Shield,
-        title: "Automatyczny system",
-        description: "Przypomnienia i dozowanie leków"
+        title: "Automatyczny dozownik",
+        description: "Modułowy mechanizm podający leki o ustalonej porze. Eliminuje błędy dawkowania."
+    },
+    {
+        icon: Heart,
+        title: "Opaska ratunkowa",
+        description: "Wykrywanie upadków, SOS i komunikaty głosowe. Działa niezależnie od smartfona."
     },
 ];
 
@@ -154,7 +154,7 @@ export default function ProblemSolution() {
                         );
                     })}
 
-                    {/* CTA */}
+                    {/* CTA - Removed as per request */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -162,9 +162,6 @@ export default function ProblemSolution() {
                         transition={{ delay: 0.6 }}
                         className="lg:col-start-1 lg:col-span-2 lg:row-start-5 pt-6 flex justify-center"
                     >
-                        <button className="btn-primary w-full md:w-auto md:px-12">
-                            Zobacz jak to działa
-                        </button>
                     </motion.div>
                 </div>
             </div>

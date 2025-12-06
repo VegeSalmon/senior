@@ -68,24 +68,11 @@ export default function Hero() {
                     transition={{ delay: 0.4, duration: 0.8 }}
                     className="opacity-0 text-xl md:text-2xl text-graphite/80 mb-12 max-w-3xl font-sans leading-relaxed"
                 >
-                    Innowacyjny system wsparcia dla seniorów, który łączy technologię z ludzką empatią.
-                    Pomagamy starszym osobom żyć samodzielnie i bezpiecznie.
+                    Senior Support System to środowisko technologiczne, które w sposób kompleksowy wspiera codzienność osób starszych.
+                    Działa cicho, przewidywalnie i niezawodnie — tak, aby senior mógł skupić się na tym, co w życiu najważniejsze.
                 </motion.p>
 
-                {/* CTA Buttons */}
-                <motion.div
-                    initial={{ y: 30, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.6, duration: 0.8 }}
-                    className="opacity-0 flex flex-col sm:flex-row gap-4 items-center"
-                >
-                    <button className="btn-primary">
-                        Dowiedz się więcej
-                    </button>
-                    <button className="btn-secondary">
-                        Dołącz do nas
-                    </button>
-                </motion.div>
+                {/* CTA Buttons - Removed as per request */}
 
                 {/* Stats Preview */}
                 <motion.div
@@ -95,9 +82,9 @@ export default function Hero() {
                     className="opacity-0 mt-16 grid grid-cols-3 gap-8 md:gap-16"
                 >
                     {[
-                        { number: "100+", label: "Seniorów" },
-                        { number: "50+", label: "Wolontariuszy" },
-                        { number: "1000+", label: "Godzin wsparcia" },
+                        { number: "40+", label: "pozytywnych opinii seniorów" },
+                        { number: "30h", label: "konsultacji pomysłów na rozwój" },
+                        { number: "1000+", label: "godzin pracy" },
                     ].map((stat, index) => (
                         <div key={index} className="text-center">
                             <div className="text-3xl md:text-4xl font-display font-bold text-gradient-purple mb-2">
