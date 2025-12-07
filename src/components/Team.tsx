@@ -71,7 +71,7 @@ const team = [
     {
         name: "Ania Olszak",
         role: "Główny Zespół",
-        passion: "Wsparcie organizacyjne",
+        passion: "Twórca Projektu",
         icon: <Heart className="w-6 h-6" />,
         color: "from-mint to-mint-light",
         size: "small"
