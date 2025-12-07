@@ -70,7 +70,7 @@ const team = [
     },
     {
         name: "Ania Olszak",
-        role: "Ogólna pomoc",
+        role: "Główny Zespół",
         passion: "Wsparcie organizacyjne",
         icon: <Heart className="w-6 h-6" />,
         color: "from-mint to-mint-light",

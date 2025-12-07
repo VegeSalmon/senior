@@ -24,19 +24,19 @@ const benefits = [
 
 const testimonials = [
     {
-        text: "Dzięki SSS nie czuję się już samotna. Moja wolontariuszka dzwoni do mnie codziennie i zawsze mogę na nią liczyć.",
+        text: "Taki system byłby dla mnie ogromnym wsparciem. Świadomość, że ktoś czuwa i w razie potrzeby zareaguje, dałaby mi poczucie bezpieczeństwa, którego teraz mi brakuje.",
         author: "Maria K.",
         age: "78 lat"
     },
     {
-        text: "System przypominający o lekach to prawdziwe błogosławieństwo. Nie muszę się już martwić, że zapomnę o tabletkach.",
+        text: "Pomysł z automatycznym przypominaniem o lekach jest świetny. Często zdarza mi się zastanawiać, czy wziąłem tabletkę, a takie rozwiązanie zdjęłoby mi ten ciężar z głowy.",
         author: "Jan P.",
         age: "82 lata"
     },
     {
-        text: "Wspaniałe uczucie pomagać starszym osobom. To daje mi ogromną satysfakcję i wiele się uczę od seniorów.",
+        text: "Możliwość łatwego kontaktu z wolontariuszem to coś, czego wielu z nas potrzebuje. Sama myśl, że można z kimś porozmawiać, dodaje otuchy.",
         author: "Anna M.",
-        age: "Wolontariuszka"
+        age: "75 lat"
     },
 ];
 
