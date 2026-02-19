@@ -1,153 +1,100 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* Colors - Warm & Human-Centered Palette */
-  --color-purple: #6B46C1;
-  --color-purple-light: #8B5CF6;
-  --color-purple-dark: #553C9A;
-  --color-coral: #FF6B6B;
-  --color-coral-light: #FF8787;
-  --color-coral-dark: #EE5A52;
-  --color-mint: #4ECDC4;
-  --color-mint-light: #7EDDD6;
-  --color-mint-dark: #3AAFA9;
-  --color-cream: #FFF8F0;
-  --color-cream-dark: #F5E6D3;
-  --color-graphite: #2C3E50;
-  --color-graphite-light: #34495E;
-
-  /* Glassmorphism */
-  --color-glass-bg: rgba(255, 255, 255, 0.85);
-  --color-glass-border: rgba(107, 70, 193, 0.2);
-  --color-glass-dark: rgba(255, 255, 255, 0.6);
+  /* Colors - Modern Editorial Tech Palette */
+  --color-navy-deep: #050608;
+  --color-navy-dark: #0A0C10;
+  --color-navy-light: #1A1D23;
+  
+  --color-electric-cyan: #00F5FF;
+  --color-soft-lavender: #B794F4;
+  --color-vibrant-purple: #7000FF;
+  
+  --color-white: #FFFFFF;
+  --color-off-white: #F0F2F5;
+  --color-glass-white: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
 
   /* Fonts */
-  --font-sans: 'Inter', sans-serif;
-  --font-display: 'Poppins', sans-serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-display: 'Syne', sans-serif;
   --font-accent: 'Space Grotesk', monospace;
 
   /* Animations */
-  --animate-blob: blob 7s infinite;
+  --animate-mesh: mesh 10s ease infinite;
   --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse-slow: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-slide-up: slide-up 0.6s ease-out;
-  --animate-fade-in: fade-in 0.8s ease-out;
+  --animate-reveal: reveal 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  
+  /* Radii */
+  --radius-bento: 40px;
+  --radius-pill: 9999px;
 
   /* Shadows */
-  --shadow-soft: 0 4px 20px rgba(107, 70, 193, 0.1);
-  --shadow-medium: 0 8px 30px rgba(107, 70, 193, 0.15);
-  --shadow-glass: 0 8px 32px 0 rgba(107, 70, 193, 0.12);
+  --shadow-glow: 0 0 40px rgba(0, 245, 255, 0.15);
+  --shadow-premium: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
 }
 
 /* Keyframes */
-@keyframes blob {
-  0% {
-    transform: translate(0px, 0px) scale(1);
-  }
-
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
-  }
-
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-
-  100% {
-    transform: translate(0px, 0px) scale(1);
-  }
+@keyframes mesh {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-20px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
-@keyframes pulse-slow {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+@keyframes reveal {
+  0% { transform: translateY(100px); opacity: 0; filter: blur(10px); }
+  100% { transform: translateY(0); opacity: 1; filter: blur(0); }
 }
 
 /* Custom Utilities */
 @layer utilities {
-  .glass-panel {
-    @apply bg-glass-bg backdrop-blur-xl border border-glass-border rounded-2xl;
-    box-shadow: var(--shadow-glass);
+  .bg-mesh {
+    background: radial-gradient(circle at 50% 50%, #0A0C10 0%, #050608 100%);
+    background-size: 200% 200%;
+    animation: mesh 15s ease infinite;
   }
 
-  .glass-panel-dark {
-    @apply backdrop-blur-xl border border-purple/20 rounded-2xl;
-    background: var(--color-glass-dark);
+  .glass-card {
+    @apply bg-glass-white backdrop-blur-2xl border border-glass-border rounded-[40px];
+    box-shadow: var(--shadow-premium);
   }
 
-  .text-gradient-purple {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple via-purple-light to-coral;
+  .text-hero {
+    @apply font-display font-extrabold tracking-tighter leading-[0.9];
   }
 
-  .text-gradient-coral {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-coral to-coral-light;
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-electric-cyan to-soft-lavender;
   }
 
-  .text-gradient-mint {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-mint to-mint-light;
+  .pill-button {
+    @apply px-8 py-4 rounded-full font-display font-bold text-lg transition-all duration-500;
+    @apply bg-white text-navy-deep hover:bg-electric-cyan hover:scale-105 active:scale-95;
+    @apply shadow-glow hover:shadow-electric-cyan/30;
   }
 
-  .blob-shape {
-    @apply absolute rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob;
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
   }
 
-  .btn-primary {
-    @apply px-8 py-4 rounded-full font-display font-bold text-lg transition-all duration-300;
-    @apply bg-gradient-to-r from-purple to-coral text-white;
-    @apply hover:shadow-lg hover:scale-105 active:scale-95;
-    box-shadow: 0 4px 15px rgba(107, 70, 193, 0.3);
+  .reveal-on-scroll {
+    opacity: 0;
+    animation: reveal 1s forwards;
   }
+}
 
-  .btn-secondary {
-    @apply px-8 py-4 rounded-full font-display font-bold text-lg transition-all duration-300;
-    @apply bg-cream border-2 border-purple text-purple;
-    @apply hover:bg-purple hover:text-cream hover:shadow-lg hover:scale-105 active:scale-95;
-  }
+body {
+  @apply bg-navy-deep text-white font-sans antialiased overflow-x-hidden;
+}
 
-
-  .animation-delay-4000 {
-    animation-delay: 4s;
-  }
+::selection {
+  @apply bg-electric-cyan text-navy-deep;
 }

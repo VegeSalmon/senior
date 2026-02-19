@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Code, Heart } from "lucide-react";
+import { User, Code, Heart, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Team() {
@@ -10,153 +10,145 @@ export default function Team() {
     const team = [
         {
             name: "Emil Pająk",
+            role: t.team.roles.projectCreator,
             icon: <User className="w-8 h-8" />,
-            color: "from-purple to-purple-light",
-            size: "medium"
+            accent: "electric-cyan",
+            span: "md:col-span-4 md:row-span-2"
         },
         {
             name: "Piotr Śpiechowicz",
-            icon: <User className="w-8 h-8" />,
-            color: "from-purple to-coral",
-            size: "medium"
+            role: t.team.roles.techSupport,
+            icon: <Code className="w-8 h-8" />,
+            accent: "soft-lavender",
+            span: "md:col-span-4"
         },
         {
             name: "Stanisław Trojan",
+            role: "Engineering",
             icon: <User className="w-8 h-8" />,
-            color: "from-mint to-purple",
-            size: "medium"
+            accent: "white",
+            span: "md:col-span-4"
         },
         {
             name: "Kacper Romuk",
+            role: "Electronics",
             icon: <User className="w-8 h-8" />,
-            color: "from-coral to-mint",
-            size: "medium"
-        },
-        {
-            name: "Łukasz Dziki",
-            icon: <Code className="w-6 h-6" />,
-            color: "from-purple to-purple-light",
-            size: "small"
-        },
-        {
-            name: "Jacek Wiaterek",
-            icon: <Code className="w-6 h-6" />,
-            color: "from-coral to-coral-light",
-            size: "small"
+            accent: "electric-cyan",
+            span: "md:col-span-4"
         },
         {
             name: "Ania Olszak",
-            icon: <Heart className="w-6 h-6" />,
-            color: "from-mint to-mint-light",
-            size: "small"
+            role: "Research",
+            icon: <Heart className="w-8 h-8" />,
+            accent: "soft-lavender",
+            span: "md:col-span-4"
         },
+        {
+            name: "Łukasz Dziki",
+            role: t.team.roles.webSupport,
+            icon: <Code className="w-8 h-8" />,
+            accent: "white",
+            span: "md:col-span-4 md:row-span-1"
+        },
+        {
+            name: "Jacek Wiaterek",
+            role: t.team.roles.techSupport,
+            icon: <Code className="w-8 h-8" />,
+            accent: "electric-cyan",
+            span: "md:col-span-4"
+        }
     ];
 
     return (
-        <section id="team" className="relative py-24 md:py-32 px-6 md:px-12 bg-cream overflow-hidden">
-            {/* Background */}
-            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-coral/5 rounded-full blur-3xl pointer-events-none" />
+        <section id="team" className="relative py-32 px-6 lg:px-12 bg-navy-deep overflow-hidden">
+            {/* Background Glow */}
+            <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-vibrant-purple/10 blur-[150px] rounded-full pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto relative z-10">
+            <div className="max-w-[1400px] mx-auto relative z-10">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="mb-20"
                 >
-                    <h2 className="text-4xl md:text-6xl font-display font-bold text-graphite mb-4">
-                        {t.team.title} <span className="text-gradient-purple">{t.team.titleHighlight}</span>
+                    <h2 className="text-5xl md:text-7xl font-display font-bold text-white mb-6">
+                        {t.team.title} <span className="text-gradient-cyan">{t.team.titleHighlight}</span>
                     </h2>
-                    <p className="text-xl text-graphite/70 max-w-3xl mx-auto mb-6">
+                    <p className="text-xl text-white/40 max-w-2xl font-sans leading-relaxed">
                         {t.team.description}
                     </p>
 
-                    {/* Camp Badge */}
-                    <motion.div
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ type: "spring", delay: 0.3 }}
-                        className="inline-flex items-center gap-2 bg-gradient-to-r from-coral to-coral-light text-white px-6 py-3 rounded-full shadow-medium font-display font-semibold"
-                    >
-                        <Heart className="w-5 h-5" />
+                    <div className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white/80 font-bold uppercase tracking-widest text-xs">
+                        <Sparkles className="w-4 h-4 text-electric-cyan" />
                         {t.team.campBadge}
-                    </motion.div>
+                    </div>
                 </motion.div>
 
-                {/* Asymmetric Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
-                    {team.map((member, index) => {
-                        const sizeClasses = {
-                            large: "md:col-span-2 md:row-span-2",
-                            medium: "md:col-span-1",
-                            small: "md:col-span-1"
-                        };
+                {/* Modular Team Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
+                    {team.map((member, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.05 }}
+                            className={`${member.span} glass-card p-10 flex flex-col justify-between group relative overflow-hidden`}
+                        >
+                            <div className="absolute top-0 right-0 p-8">
+                                <span className="text-[10px] font-bold tracking-[0.3em] text-white/10 group-hover:text-white/20 transition-colors uppercase">
+                                    {member.role}
+                                </span>
+                            </div>
 
-                        return (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className={`group relative ${sizeClasses[member.size as keyof typeof sizeClasses]}`}
-                            >
-                                <div className="glass-panel p-8 h-full border-purple/20 hover:border-purple/50 transition-all duration-300 hover:-translate-y-2 relative overflow-hidden">
-                                    {/* Hover Gradient Overlay */}
-                                    <div className={`absolute inset-0 bg-gradient-to-br ${member.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-
-                                    {/* Content */}
-                                    <div className="relative z-10 flex flex-col h-full">
-                                        {/* Icon/Avatar */}
-                                        <div className={`${member.size === 'large' ? 'w-24 h-24 mb-6' : 'w-16 h-16 mb-4'} rounded-2xl bg-gradient-to-br ${member.color} flex items-center justify-center text-white shadow-soft group-hover:shadow-medium group-hover:scale-110 transition-all duration-300`}>
-                                            {member.icon}
-                                        </div>
-
-                                        {/* Info */}
-                                        <div className="flex-1">
-                                            <h3 className={`${member.size === 'large' ? 'text-3xl' : 'text-xl'} font-display font-bold text-graphite mb-2`}>
-                                                {member.name}
-                                            </h3>
-
-
-                                            {/* Passion */}
-                                            <div className="overflow-hidden">
-                                                <motion.p
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    whileInView={{ opacity: 1, y: 0 }}
-                                                    className={`${member.size === 'large' ? 'text-base' : 'text-sm'} text-graphite/70 italic opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                                                >
-
-                                                </motion.p>
-                                            </div>
-                                        </div>
-
-                                        {/* Placeholder for photo */}
-                                        {member.size === 'large' && (
-                                            <div className="mt-6 aspect-[4/3] bg-gradient-to-br from-purple/10 to-coral/10 rounded-xl flex items-center justify-center border border-purple/20 group-hover:border-purple/40 transition-colors">
-                                                <p className="text-graphite/40 text-sm font-display">{t.team.teamPhotoPlaceholder}</p>
-                                            </div>
-                                        )}
+                            <div>
+                                <div className={`w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-10 group-hover:scale-110 transition-transform`}>
+                                    <div className={`text-${member.accent}`}>
+                                        {member.icon}
                                     </div>
                                 </div>
-                            </motion.div>
-                        );
-                    })}
+                                <h3 className="text-3xl font-display font-bold text-white group-hover:text-electric-cyan transition-colors">
+                                    {member.name}
+                                </h3>
+                            </div>
+
+                            {/* Hover effect highlight */}
+                            <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-electric-cyan group-hover:w-full transition-all duration-700" />
+                        </motion.div>
+                    ))}
                 </div>
 
-                {/* Additional Info */}
+                {/* Team Photo */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    className="mt-16 text-center"
+                    className="mt-20 relative rounded-3xl overflow-hidden glass-card border-white/10 group"
                 >
-                    <p className="text-graphite/70 text-lg mb-6 max-w-3xl mx-auto">
-                        <strong className="text-purple font-display">{t.team.bottomParagraph.bold}</strong>{t.team.bottomParagraph.rest}
-                    </p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/80 via-transparent to-transparent z-10" />
+                    <img
+                        src="/team.jpg"
+                        alt={t.about.teamPhotoAlt}
+                        className="w-full h-[500px] object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700"
+                    />
+                    <div className="absolute bottom-0 left-0 p-10 z-20">
+                        <h3 className="text-3xl font-display font-bold text-white mb-2">{t.team.roles.mainTeam}</h3>
+                        <p className="text-white/60">{t.team.campBadge}</p>
+                    </div>
+                </motion.div>
+
+                {/* Narrative Footer */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    className="mt-20 flex justify-center"
+                >
+                    <div className="max-w-3xl text-center">
+                        <p className="text-2xl text-white leading-relaxed font-sans opacity-80 italic">
+                            &quot;{t.team.bottomParagraph.bold} {t.team.bottomParagraph.rest}&quot;
+                        </p>
+                    </div>
                 </motion.div>
             </div>
         </section>

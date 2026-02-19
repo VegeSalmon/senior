@@ -6,30 +6,31 @@ export const en: Translations = {
         toggleLabel: "Polski",
     },
     hero: {
-        badge: "Senior Support System",
+        badge: "Lekomat",
         headlinePart1: "Supporting Seniors.",
         headlinePart2: "Bridging Generations.",
         description:
-            "Senior Support System is a technological environment that comprehensively supports the daily lives of elderly people. It works quietly, predictably, and reliably — so seniors can focus on what matters most in life.",
+            "Lekomat is a technological environment that comprehensively supports the daily lives of elderly people. It works quietly, predictably, and reliably — so seniors can focus on what matters most in life.",
         stats: [
             { number: "40+", label: "positive senior reviews" },
             { number: "30h", label: "development consultations" },
             { number: "1000+", label: "hours of work" },
         ],
         scrollDown: "Scroll down",
+        cta: "Get Started",
     },
     about: {
-        title: "About the",
-        titleHighlight: "Project",
+        title: "About",
+        titleHighlight: "Lekomat",
         paragraph1:
-            "Senior Support System is not just another gadget — it's a complete care environment. The market offers individual tools, but no system connects them into such a cohesive whole.",
+            "Lekomat is not just another gadget — it's a complete care environment. The market offers individual tools, but no system connects them into such a cohesive whole.",
         paragraph2:
             "We integrate advanced pharmacotherapy management, emergency features, and a local support network. Everything works quietly and reliably, allowing seniors to enjoy life.",
         paragraph3:
             "This solution is built on a solid foundation of research and analysis.",
         badgeLine1: "Made with ❤️",
         badgeLine2: "at science camp",
-        teamPhotoAlt: "Senior Support System Team",
+        teamPhotoAlt: "Lekomat Team",
         values: [
             {
                 title: "Comprehensive",
@@ -52,6 +53,19 @@ export const en: Translations = {
                     "A project based on research and understanding needs.",
             },
         ],
+    },
+    bento: {
+        title: "Engineered for",
+        titleHighlight: "Excellence.",
+        autonomyTitle: "24/7 Autonomy",
+        autonomyDescription:
+            "The system works silently in the background, ensuring medication is always available and safety is never compromised. Fully autonomous medicine sorting and dispensing 365 days a year.",
+        mobileTitle: "Mobile Companion",
+        mobileDescription:
+            "Remote management and real-time alerts for family and caregivers, integrated directly with Lekomat hardware.",
+        sosTitle: "SOS Integration",
+        sosDescription:
+            "Immediate response system that triggers local volunteer alerts and emergency services when every second counts.",
     },
     problemSolution: {
         title: "Problem",
@@ -123,7 +137,8 @@ export const en: Translations = {
     impact: {
         title: "Key",
         titleHighlight: "Benefits",
-        subtitle: "How Senior Support System changes everyday life",
+        subtitle: "How Lekomat changes everyday life",
+        humanImpact: "Human-Centric Impact",
         benefits: [
             {
                 title: "Confidence & Peace of Mind",
@@ -183,7 +198,7 @@ export const en: Translations = {
         visionTitle: "Our Vision for the",
         visionTitleHighlight: "Future",
         visionDescription:
-            "Senior Support System is the beginning of a much broader idea. Our long-term vision is to create an open, modular telecare ecosystem.",
+            "Lekomat is the beginning of a much broader idea. Our long-term vision is to create an open, modular telecare ecosystem.",
         visionItems: [
             "Full integration with medical devices (glucometers, blood pressure monitors)",
             "Automatic health parameter monitoring",
@@ -194,13 +209,14 @@ export const en: Translations = {
     },
     footer: {
         brandDescription:
-            "Senior Support System — we combine technology with human empathy to support seniors in their daily lives.",
+            "Lekomat — we combine technology with human empathy to support seniors in their daily lives.",
         quickLinksTitle: "Quick Links",
         quickLinks: [
             { label: "About", href: "#about" },
             { label: "Team", href: "#team" },
         ],
         copyright: "All rights reserved.",
+        builtForImpact: "Built for Impact",
         campBadgePre: "Project created by enthusiasts during a",
         campBadgeHighlight: "science camp",
     },

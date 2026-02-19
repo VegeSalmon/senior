@@ -1,41 +1,12 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Users, Heart, Shield } from "lucide-react";
+import { Users, Heart, Shield, Quote } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 const benefitIcons = [Heart, Shield, Users];
-
-function Counter({ end, duration = 2 }: { end: number; duration?: number }) {
-    const [count, setCount] = useState(0);
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
-
-    useEffect(() => {
-        if (!isInView) return;
-
-        let startTime: number;
-        let animationFrame: number;
-
-        const animate = (currentTime: number) => {
-            if (!startTime) startTime = currentTime;
-            const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
-
-            setCount(Math.floor(progress * end));
-
-            if (progress < 1) {
-                animationFrame = requestAnimationFrame(animate);
-            }
-        };
-
-        animationFrame = requestAnimationFrame(animate);
-
-        return () => cancelAnimationFrame(animationFrame);
-    }, [isInView, end, duration]);
-
-    return <span ref={ref}>{count}</span>;
-}
+const benefitAccents = ["electric-cyan", "soft-lavender", "white"];
 
 export default function Impact() {
     const { t } = useLanguage();
@@ -44,59 +15,54 @@ export default function Impact() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentTestimonial((prev) => (prev + 1) % t.impact.testimonials.length);
-        }, 5000);
-
+        }, 8000);
         return () => clearInterval(interval);
     }, [t.impact.testimonials.length]);
 
     return (
-        <section id="impact" className="relative py-24 md:py-32 px-6 md:px-12 bg-gradient-to-b from-cream-dark to-cream overflow-hidden">
-            {/* Background */}
-            <div className="absolute inset-0 opacity-30">
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-purple/10 rounded-full blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-coral/10 rounded-full blur-3xl" />
-            </div>
+        <section id="impact" className="relative py-32 px-6 lg:px-12 bg-navy-dark overflow-hidden">
+            {/* Background Glows */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-mesh opacity-10 pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto relative z-10">
+            <div className="max-w-[1400px] mx-auto relative z-10">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="mb-20"
                 >
-                    <h2 className="text-4xl md:text-6xl font-display font-bold text-graphite mb-4">
-                        {t.impact.title} <span className="text-gradient-coral">{t.impact.titleHighlight}</span>
+                    <h2 className="text-hero text-6xl md:text-7xl text-white mb-6">
+                        {t.impact.title} <br />
+                        <span className="text-gradient-cyan">{t.impact.titleHighlight}</span>
                     </h2>
-                    <p className="text-xl text-graphite/70 max-w-2xl mx-auto">
+                    <p className="text-xl text-white/40 max-w-xl font-sans">
                         {t.impact.subtitle}
                     </p>
                 </motion.div>
 
                 {/* Benefits Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
                     {t.impact.benefits.map((benefit, index) => {
                         const Icon = benefitIcons[index];
+                        const accent = benefitAccents[index];
+
                         return (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="glass-panel p-8 text-center border-purple/30 hover:border-coral/50 transition-all duration-300 group hover:-translate-y-2 h-full"
+                                className="glass-card p-10 border-white/5 hover:border-white/10 transition-all duration-500 group"
                             >
-                                <motion.div
-                                    whileHover={{ rotate: 360 }}
-                                    transition={{ duration: 0.6 }}
-                                    className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-coral to-coral-light flex items-center justify-center shadow-soft group-hover:shadow-medium transition-shadow"
-                                >
-                                    <Icon className="w-10 h-10 text-white" />
-                                </motion.div>
-                                <h3 className="text-2xl font-display font-bold text-graphite mb-4">
+                                <div className={`w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform`}>
+                                    <Icon className={`w-8 h-8 text-${accent}`} />
+                                </div>
+                                <h3 className="text-2xl font-display font-bold text-white mb-4">
                                     {benefit.title}
                                 </h3>
-                                <p className="text-graphite/70 font-sans leading-relaxed">
+                                <p className="text-white/60 font-sans leading-relaxed">
                                     {benefit.description}
                                 </p>
                             </motion.div>
@@ -104,56 +70,57 @@ export default function Impact() {
                     })}
                 </div>
 
-                <div className="flex justify-center">
-                    {/* Testimonials Carousel */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="glass-panel p-8 border-coral/30 relative overflow-hidden max-w-3xl w-full"
-                    >
-                        <h3 className="text-2xl font-display font-bold text-graphite mb-8 flex items-center gap-3">
-                            <Heart className="w-6 h-6 text-coral" />
+                {/* Testimonials - Editorial Layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div className="lg:col-span-5">
+                        <Quote className="w-16 h-16 text-electric-cyan opacity-20 mb-8" />
+                        <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
                             {t.impact.testimonialsTitle}
                         </h3>
+                        <p className="text-white/40 text-lg max-w-sm">
+                            Real stories from seniors who have experienced the future of care.
+                        </p>
 
-                        <div className="relative min-h-[250px]">
-                            {t.impact.testimonials.map((testimonial, index) => (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, x: 50 }}
-                                    animate={{
-                                        opacity: currentTestimonial === index ? 1 : 0,
-                                        x: currentTestimonial === index ? 0 : 50,
-                                        display: currentTestimonial === index ? 'block' : 'none'
-                                    }}
-                                    transition={{ duration: 0.5 }}
-                                    className="absolute inset-0"
-                                >
-                                    <p className="text-lg text-graphite/80 leading-relaxed mb-6">
-                                        &quot;{testimonial.text}&quot;
-                                    </p>
-                                    <div>
-                                        <p className="font-display font-bold text-graphite">{testimonial.author}</p>
-                                        <p className="text-sm text-graphite/60">{testimonial.age}</p>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-
-                        {/* Carousel Indicators */}
-                        <div className="flex gap-2 mt-6 justify-center">
+                        {/* Custom Navigation */}
+                        <div className="flex gap-4 mt-12">
                             {t.impact.testimonials.map((_, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setCurrentTestimonial(index)}
-                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${currentTestimonial === index ? 'bg-coral w-8' : 'bg-coral/30'
+                                    className={`h-1.5 rounded-full transition-all duration-500 ${currentTestimonial === index ? 'bg-electric-cyan w-12' : 'bg-white/10 w-6 hover:bg-white/20'
                                         }`}
-                                    aria-label={`Go to testimonial ${index + 1}`}
                                 />
                             ))}
                         </div>
-                    </motion.div>
+                    </div>
+
+                    <div className="lg:col-span-7 relative min-h-[400px] flex items-center">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={currentTestimonial}
+                                initial={{ opacity: 0, x: 50, filter: "blur(10px)" }}
+                                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                                exit={{ opacity: 0, x: -50, filter: "blur(10px)" }}
+                                transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+                                className="glass-card p-12 lg:p-16 border-white/10 w-full"
+                            >
+                                <p className="text-2xl md:text-3xl text-white font-medium italic leading-snug mb-10">
+                                    &quot;{t.impact.testimonials[currentTestimonial].text}&quot;
+                                </p>
+                                <div className="flex items-center gap-4">
+                                    <div className="w-px h-12 bg-electric-cyan" />
+                                    <div>
+                                        <p className="font-display font-bold text-lg text-white">
+                                            {t.impact.testimonials[currentTestimonial].author}
+                                        </p>
+                                        <p className="text-white/40 text-sm uppercase tracking-widest font-bold">
+                                            {t.impact.testimonials[currentTestimonial].age}
+                                        </p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
                 </div>
             </div>
         </section>

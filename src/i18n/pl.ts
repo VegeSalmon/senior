@@ -10,6 +10,7 @@ export interface Translations {
         description: string;
         stats: readonly { number: string; label: string }[];
         scrollDown: string;
+        cta: string;
     };
     about: {
         title: string;
@@ -21,6 +22,16 @@ export interface Translations {
         badgeLine2: string;
         teamPhotoAlt: string;
         values: readonly { title: string; description: string }[];
+    };
+    bento: {
+        title: string;
+        titleHighlight: string;
+        autonomyTitle: string;
+        autonomyDescription: string;
+        mobileTitle: string;
+        mobileDescription: string;
+        sosTitle: string;
+        sosDescription: string;
     };
     problemSolution: {
         title: string;
@@ -39,6 +50,7 @@ export interface Translations {
         title: string;
         titleHighlight: string;
         subtitle: string;
+        humanImpact: string;
         benefits: readonly { title: string; description: string }[];
         testimonialsTitle: string;
         testimonials: readonly { text: string; author: string; age: string }[];
@@ -72,6 +84,7 @@ export interface Translations {
         quickLinksTitle: string;
         quickLinks: readonly { label: string; href: string }[];
         copyright: string;
+        builtForImpact: string;
         campBadgePre: string;
         campBadgeHighlight: string;
     };
@@ -83,30 +96,31 @@ export const pl: Translations = {
         toggleLabel: "English",
     },
     hero: {
-        badge: "Senior Support System",
+        badge: "Lekomat",
         headlinePart1: "Wspieramy Seniorów.",
         headlinePart2: "Łączymy Pokolenia.",
         description:
-            "Senior Support System to środowisko technologiczne, które w sposób kompleksowy wspiera codzienność osób starszych. Działa cicho, przewidywalnie i niezawodnie — tak, aby senior mógł skupić się na tym, co w życiu najważniejsze.",
+            "Lekomat to środowisko technologiczne, które w sposób kompleksowy wspiera codzienność osób starszych. Działa cicho, przewidywalnie i niezawodnie — tak, aby senior mógł skupić się na tym, co w życiu najważniejsze.",
         stats: [
             { number: "40+", label: "pozytywnych opinii seniorów" },
             { number: "30h", label: "konsultacji pomysłów na rozwój" },
             { number: "1000+", label: "godzin pracy" },
         ],
         scrollDown: "Przewiń w dół",
+        cta: "Zacznij teraz",
     },
     about: {
         title: "O",
         titleHighlight: "Projekcie",
         paragraph1:
-            "to nie kolejny gadżet, ale kompletne środowisko opieki. Rynek oferuje pojedyncze narzędzia, ale żaden system nie łączy ich w tak spójną całość.",
+            "Lekomat to nie kolejny gadżet, ale kompletne środowisko opieki. Rynek oferuje pojedyncze narzędzia, ale żaden system nie łączy ich w tak spójną całość.",
         paragraph2:
             "Integrujemy zaawansowane zarządzanie farmakoterapią, funkcje ratunkowe i lokalną sieć pomocy. Wszystko to działa cicho i niezawodnie, pozwalając seniorom cieszyć się życiem.",
         paragraph3:
             "To rozwiązanie zbudowane na solidnych fundamentach badań i analiz.",
         badgeLine1: "Made with ❤️",
         badgeLine2: "podczas obozu",
-        teamPhotoAlt: "Zespół Senior Support System",
+        teamPhotoAlt: "Zespół Lekomat",
         values: [
             {
                 title: "Kompleksowość",
@@ -125,6 +139,19 @@ export const pl: Translations = {
                 description: "Projekt oparty na badaniach i zrozumieniu potrzeb.",
             },
         ],
+    },
+    bento: {
+        title: "Zaprojektowany dla",
+        titleHighlight: "Doskonałości.",
+        autonomyTitle: "24/7 Autonomia",
+        autonomyDescription:
+            "System działa cicho w tle, zapewniając stały dostęp do leków i bezpieczeństwo. W pełni autonomiczne sortowanie i wydawanie leków przez 365 dni w roku.",
+        mobileTitle: "Mobilny Towarzysz",
+        mobileDescription:
+            "Zdalne zarządzanie i powiadomienia w czasie rzeczywistym dla rodziny i opiekunów, zintegrowane bezpośrednio z urządzeniem Lekomat.",
+        sosTitle: "Integracja SOS",
+        sosDescription:
+            "System natychmiastowego reagowania, który wysyła powiadomienia do lokalnych wolontariuszy i służb ratunkowych, gdy każda sekunda ma znaczenie.",
     },
     problemSolution: {
         title: "Problem",
@@ -196,7 +223,8 @@ export const pl: Translations = {
     impact: {
         title: "Kluczowe",
         titleHighlight: "Korzyści",
-        subtitle: "Jak Senior Support System zmienia codzienność",
+        subtitle: "Jak Lekomat zmienia codzienność",
+        humanImpact: "Wsparcie Seniorów",
         benefits: [
             {
                 title: "Pewność i spokój",
@@ -256,7 +284,7 @@ export const pl: Translations = {
         visionTitle: "Nasza Wizja",
         visionTitleHighlight: "Przyszłości",
         visionDescription:
-            "Senior Support System to początek znacznie szerszej idei. Naszą długoterminową wizją jest stworzenie otwartego, modułowego ekosystemu teleopieki.",
+            "Lekomat to początek znacznie szerszej idei. Naszą długoterminową wizją jest stworzenie otwartego, modułowego ekosystemu teleopieki.",
         visionItems: [
             "Pełna integracja z urządzeniami medycznymi (glukometry, ciśnieniomierze)",
             "Automatyczne monitorowanie parametrów zdrowotnych",
@@ -267,13 +295,14 @@ export const pl: Translations = {
     },
     footer: {
         brandDescription:
-            "Senior Support System - łączymy technologię z ludzką empatią, aby wspierać seniorów w codziennym życiu.",
+            "Lekomat - łączymy technologię z ludzką empatią, aby wspierać seniorów w codziennym życiu.",
         quickLinksTitle: "Szybkie linki",
         quickLinks: [
             { label: "O projekcie", href: "#about" },
             { label: "Zespół", href: "#team" },
         ],
-        copyright: "Wszystkie prawa zastrzeżone.",
+        copyright: "Wszelkie prawa zastrzeżone.",
+        builtForImpact: "Stworzony dla Seniorów",
         campBadgePre: "Projekt stworzony przez pasjonatów podczas",
         campBadgeHighlight: "obozu naukowego",
     },

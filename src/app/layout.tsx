@@ -15,7 +15,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "SSS | Senior Support System",
+  title: "Lekomat",
   description: "Advanced Medicine Sorting Technology",
 };
 
