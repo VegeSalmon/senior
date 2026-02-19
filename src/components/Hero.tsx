@@ -98,7 +98,7 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 1 }}
-                className="opacity-0 absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+                className="opacity-0 absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
             >
                 <span className="text-xs uppercase tracking-widest text-graphite/60 font-accent">{t.hero.scrollDown}</span>
                 <motion.div

@@ -10,72 +10,42 @@ export default function Team() {
     const team = [
         {
             name: "Emil Pająk",
-            role: t.team.roles.mainTeam,
-            passion: t.team.roles.projectCreator,
             icon: <User className="w-8 h-8" />,
             color: "from-purple to-purple-light",
             size: "medium"
         },
         {
-            name: "Jagoda Sułek",
-            role: t.team.roles.mainTeam,
-            passion: t.team.roles.projectCreator,
-            icon: <User className="w-8 h-8" />,
-            color: "from-coral to-coral-light",
-            size: "medium"
-        },
-        {
-            name: "Magda Jarosz",
-            role: t.team.roles.mainTeam,
-            passion: t.team.roles.projectCreator,
-            icon: <User className="w-8 h-8" />,
-            color: "from-mint to-mint-light",
-            size: "medium"
-        },
-        {
             name: "Piotr Śpiechowicz",
-            role: t.team.roles.mainTeam,
-            passion: t.team.roles.projectCreator,
             icon: <User className="w-8 h-8" />,
             color: "from-purple to-coral",
             size: "medium"
         },
         {
             name: "Stanisław Trojan",
-            role: t.team.roles.mainTeam,
-            passion: t.team.roles.projectCreator,
             icon: <User className="w-8 h-8" />,
             color: "from-mint to-purple",
             size: "medium"
         },
         {
             name: "Kacper Romuk",
-            role: t.team.roles.mainTeam,
-            passion: t.team.roles.projectCreator,
             icon: <User className="w-8 h-8" />,
             color: "from-coral to-mint",
             size: "medium"
         },
         {
             name: "Łukasz Dziki",
-            role: t.team.roles.webSupport,
-            passion: t.team.roles.techSupport,
             icon: <Code className="w-6 h-6" />,
             color: "from-purple to-purple-light",
             size: "small"
         },
         {
             name: "Jacek Wiaterek",
-            role: t.team.roles.webSupport,
-            passion: t.team.roles.techSupport,
             icon: <Code className="w-6 h-6" />,
             color: "from-coral to-coral-light",
             size: "small"
         },
         {
             name: "Ania Olszak",
-            role: t.team.roles.mainTeam,
-            passion: t.team.roles.projectCreatorCap,
             icon: <Heart className="w-6 h-6" />,
             color: "from-mint to-mint-light",
             size: "small"
@@ -150,9 +120,7 @@ export default function Team() {
                                             <h3 className={`${member.size === 'large' ? 'text-3xl' : 'text-xl'} font-display font-bold text-graphite mb-2`}>
                                                 {member.name}
                                             </h3>
-                                            <p className={`${member.size === 'large' ? 'text-lg' : 'text-sm'} text-purple font-display font-semibold mb-3`}>
-                                                {member.role}
-                                            </p>
+
 
                                             {/* Passion */}
                                             <div className="overflow-hidden">
@@ -161,7 +129,7 @@ export default function Team() {
                                                     whileInView={{ opacity: 1, y: 0 }}
                                                     className={`${member.size === 'large' ? 'text-base' : 'text-sm'} text-graphite/70 italic opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
                                                 >
-                                                    &quot;{member.passion}&quot;
+
                                                 </motion.p>
                                             </div>
                                         </div>
