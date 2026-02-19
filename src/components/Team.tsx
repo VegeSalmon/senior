@@ -1,84 +1,87 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Code, Wrench, Heart, Sparkles } from "lucide-react";
-
-const team = [
-    {
-        name: "Emil Pająk",
-        role: "Główny Zespół",
-        passion: "Twórca projektu",
-        icon: <User className="w-8 h-8" />,
-        color: "from-purple to-purple-light",
-        size: "medium"
-    },
-    {
-        name: "Jagoda Sułek",
-        role: "Główny Zespół",
-        passion: "Twórca projektu",
-        icon: <User className="w-8 h-8" />,
-        color: "from-coral to-coral-light",
-        size: "medium"
-    },
-    {
-        name: "Magda Jarosz",
-        role: "Główny Zespół",
-        passion: "Twórca projektu",
-        icon: <User className="w-8 h-8" />,
-        color: "from-mint to-mint-light",
-        size: "medium"
-    },
-    {
-        name: "Piotr Śpiechowicz",
-        role: "Główny Zespół",
-        passion: "Twórca projektu",
-        icon: <User className="w-8 h-8" />,
-        color: "from-purple to-coral",
-        size: "medium"
-    },
-    {
-        name: "Stanisław Trojan",
-        role: "Główny Zespół",
-        passion: "Twórca projektu",
-        icon: <User className="w-8 h-8" />,
-        color: "from-mint to-purple",
-        size: "medium"
-    },
-    {
-        name: "Kacper Romuk",
-        role: "Główny Zespół",
-        passion: "Twórca projektu",
-        icon: <User className="w-8 h-8" />,
-        color: "from-coral to-mint",
-        size: "medium"
-    },
-    {
-        name: "Łukasz Dziki",
-        role: "Strona i pomoc po projekcie",
-        passion: "Wsparcie techniczne",
-        icon: <Code className="w-6 h-6" />,
-        color: "from-purple to-purple-light",
-        size: "small"
-    },
-    {
-        name: "Jacek Wiaterek",
-        role: "Strona i pomoc po projekcie",
-        passion: "Wsparcie techniczne",
-        icon: <Code className="w-6 h-6" />,
-        color: "from-coral to-coral-light",
-        size: "small"
-    },
-    {
-        name: "Ania Olszak",
-        role: "Główny Zespół",
-        passion: "Twórca Projektu",
-        icon: <Heart className="w-6 h-6" />,
-        color: "from-mint to-mint-light",
-        size: "small"
-    },
-];
+import { User, Code, Heart } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Team() {
+    const { t } = useLanguage();
+
+    const team = [
+        {
+            name: "Emil Pająk",
+            role: t.team.roles.mainTeam,
+            passion: t.team.roles.projectCreator,
+            icon: <User className="w-8 h-8" />,
+            color: "from-purple to-purple-light",
+            size: "medium"
+        },
+        {
+            name: "Jagoda Sułek",
+            role: t.team.roles.mainTeam,
+            passion: t.team.roles.projectCreator,
+            icon: <User className="w-8 h-8" />,
+            color: "from-coral to-coral-light",
+            size: "medium"
+        },
+        {
+            name: "Magda Jarosz",
+            role: t.team.roles.mainTeam,
+            passion: t.team.roles.projectCreator,
+            icon: <User className="w-8 h-8" />,
+            color: "from-mint to-mint-light",
+            size: "medium"
+        },
+        {
+            name: "Piotr Śpiechowicz",
+            role: t.team.roles.mainTeam,
+            passion: t.team.roles.projectCreator,
+            icon: <User className="w-8 h-8" />,
+            color: "from-purple to-coral",
+            size: "medium"
+        },
+        {
+            name: "Stanisław Trojan",
+            role: t.team.roles.mainTeam,
+            passion: t.team.roles.projectCreator,
+            icon: <User className="w-8 h-8" />,
+            color: "from-mint to-purple",
+            size: "medium"
+        },
+        {
+            name: "Kacper Romuk",
+            role: t.team.roles.mainTeam,
+            passion: t.team.roles.projectCreator,
+            icon: <User className="w-8 h-8" />,
+            color: "from-coral to-mint",
+            size: "medium"
+        },
+        {
+            name: "Łukasz Dziki",
+            role: t.team.roles.webSupport,
+            passion: t.team.roles.techSupport,
+            icon: <Code className="w-6 h-6" />,
+            color: "from-purple to-purple-light",
+            size: "small"
+        },
+        {
+            name: "Jacek Wiaterek",
+            role: t.team.roles.webSupport,
+            passion: t.team.roles.techSupport,
+            icon: <Code className="w-6 h-6" />,
+            color: "from-coral to-coral-light",
+            size: "small"
+        },
+        {
+            name: "Ania Olszak",
+            role: t.team.roles.mainTeam,
+            passion: t.team.roles.projectCreatorCap,
+            icon: <Heart className="w-6 h-6" />,
+            color: "from-mint to-mint-light",
+            size: "small"
+        },
+    ];
+
     return (
         <section id="team" className="relative py-24 md:py-32 px-6 md:px-12 bg-cream overflow-hidden">
             {/* Background */}
@@ -94,11 +97,10 @@ export default function Team() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl md:text-6xl font-display font-bold text-graphite mb-4">
-                        Nasz <span className="text-gradient-purple">Zespół</span>
+                        {t.team.title} <span className="text-gradient-purple">{t.team.titleHighlight}</span>
                     </h2>
                     <p className="text-xl text-graphite/70 max-w-3xl mx-auto mb-6">
-                        Projekt tworzy zespół uczestników programu Adamed SmartUP.
-                        Łączymy kompetencje z zakresu programowania, elektroniki, inżynierii i badań społecznych, aby realnie zmienić jakość życia seniorów.
+                        {t.team.description}
                     </p>
 
                     {/* Camp Badge */}
@@ -110,14 +112,13 @@ export default function Team() {
                         className="inline-flex items-center gap-2 bg-gradient-to-r from-coral to-coral-light text-white px-6 py-3 rounded-full shadow-medium font-display font-semibold"
                     >
                         <Heart className="w-5 h-5" />
-                        Made with ❤️ podczas obozu naukowego
+                        {t.team.campBadge}
                     </motion.div>
                 </motion.div>
 
                 {/* Asymmetric Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-auto">
                     {team.map((member, index) => {
-                        // Asymmetric sizing
                         const sizeClasses = {
                             large: "md:col-span-2 md:row-span-2",
                             medium: "md:col-span-1",
@@ -153,14 +154,14 @@ export default function Team() {
                                                 {member.role}
                                             </p>
 
-                                            {/* Passion - revealed on hover */}
+                                            {/* Passion */}
                                             <div className="overflow-hidden">
                                                 <motion.p
                                                     initial={{ opacity: 0, y: 10 }}
                                                     whileInView={{ opacity: 1, y: 0 }}
                                                     className={`${member.size === 'large' ? 'text-base' : 'text-sm'} text-graphite/70 italic opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
                                                 >
-                                                    "{member.passion}"
+                                                    &quot;{member.passion}&quot;
                                                 </motion.p>
                                             </div>
                                         </div>
@@ -168,7 +169,7 @@ export default function Team() {
                                         {/* Placeholder for photo */}
                                         {member.size === 'large' && (
                                             <div className="mt-6 aspect-[4/3] bg-gradient-to-br from-purple/10 to-coral/10 rounded-xl flex items-center justify-center border border-purple/20 group-hover:border-purple/40 transition-colors">
-                                                <p className="text-graphite/40 text-sm font-display">Zdjęcie zespołu</p>
+                                                <p className="text-graphite/40 text-sm font-display">{t.team.teamPhotoPlaceholder}</p>
                                             </div>
                                         )}
                                     </div>
@@ -186,9 +187,7 @@ export default function Team() {
                     className="mt-16 text-center"
                 >
                     <p className="text-graphite/70 text-lg mb-6 max-w-3xl mx-auto">
-                        <strong className="text-purple font-display">Jesteśmy grupą ambitnych innowatorów</strong>, których połączyła chęć niesienia pomocy.
-                        Wierzymy, że technologia powinna służyć człowiekowi, a nie stanowić dla niego barierę.
-                        Nasz projekt to dowód na to, że empatia i inżynieria mogą iść w parze.
+                        <strong className="text-purple font-display">{t.team.bottomParagraph.bold}</strong>{t.team.bottomParagraph.rest}
                     </p>
                 </motion.div>
             </div>

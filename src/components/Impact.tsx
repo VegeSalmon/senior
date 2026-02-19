@@ -2,43 +2,10 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Users, Heart, Clock, MapPin, Quote, Shield } from "lucide-react";
+import { Users, Heart, Shield } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const benefits = [
-    {
-        icon: Heart,
-        title: "Pewność i spokój",
-        description: "Koniec z niepewnością. System pamięta o lekach za Ciebie, eliminując stres związany z pominięciem dawki."
-    },
-    {
-        icon: Shield,
-        title: "Bezpieczeństwo 24/7",
-        description: "Zintegrowane czujniki i funkcje alarmowe zapewniają natychmiastową reakcję w razie zagrożenia."
-    },
-    {
-        icon: Users,
-        title: "Niezależność",
-        description: "Projekt wzmacnia samodzielność seniora, dyskretnie czuwając nad jego bezpieczeństwem."
-    },
-];
-
-const testimonials = [
-    {
-        text: "Taki system byłby dla mnie ogromnym wsparciem. Świadomość, że ktoś czuwa i w razie potrzeby zareaguje, dałaby mi poczucie bezpieczeństwa, którego teraz mi brakuje.",
-        author: "Maria K.",
-        age: "78 lat"
-    },
-    {
-        text: "Pomysł z automatycznym przypominaniem o lekach jest świetny. Często zdarza mi się zastanawiać, czy wziąłem tabletkę, a takie rozwiązanie zdjęłoby mi ten ciężar z głowy.",
-        author: "Jan P.",
-        age: "82 lata"
-    },
-    {
-        text: "Możliwość łatwego kontaktu z wolontariuszem to coś, czego wielu z nas potrzebuje. Sama myśl, że można z kimś porozmawiać, dodaje otuchy.",
-        author: "Anna M.",
-        age: "75 lat"
-    },
-];
+const benefitIcons = [Heart, Shield, Users];
 
 function Counter({ end, duration = 2 }: { end: number; duration?: number }) {
     const [count, setCount] = useState(0);
@@ -71,15 +38,16 @@ function Counter({ end, duration = 2 }: { end: number; duration?: number }) {
 }
 
 export default function Impact() {
+    const { t } = useLanguage();
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+            setCurrentTestimonial((prev) => (prev + 1) % t.impact.testimonials.length);
         }, 5000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [t.impact.testimonials.length]);
 
     return (
         <section id="impact" className="relative py-24 md:py-32 px-6 md:px-12 bg-gradient-to-b from-cream-dark to-cream overflow-hidden">
@@ -98,17 +66,17 @@ export default function Impact() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl md:text-6xl font-display font-bold text-graphite mb-4">
-                        Kluczowe <span className="text-gradient-coral">Korzyści</span>
+                        {t.impact.title} <span className="text-gradient-coral">{t.impact.titleHighlight}</span>
                     </h2>
                     <p className="text-xl text-graphite/70 max-w-2xl mx-auto">
-                        Jak Senior Support System zmienia codzienność
+                        {t.impact.subtitle}
                     </p>
                 </motion.div>
 
                 {/* Benefits Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-                    {benefits.map((benefit, index) => {
-                        const Icon = benefit.icon;
+                    {t.impact.benefits.map((benefit, index) => {
+                        const Icon = benefitIcons[index];
                         return (
                             <motion.div
                                 key={index}
@@ -137,34 +105,6 @@ export default function Impact() {
                 </div>
 
                 <div className="flex justify-center">
-                    {/* Map Placeholder - HIDDEN TEMPORARILY
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="glass-panel p-8 border-mint/30"
-                    >
-                        <h3 className="text-2xl font-display font-bold text-graphite mb-6 flex items-center gap-3">
-                            <MapPin className="w-6 h-6 text-mint" />
-                            Zasięg projektu
-                        </h3>
-                        <div className="aspect-[4/3] bg-gradient-to-br from-mint/20 via-purple/10 to-coral/20 rounded-xl flex items-center justify-center border border-mint/30">
-                            <div className="text-center">
-                                <MapPin className="w-16 h-16 text-mint/40 mx-auto mb-4" />
-                                <p className="text-graphite/60 font-display font-semibold">Mapa Polski</p>
-                                <p className="text-sm text-graphite/40 mt-2">(wizualizacja zasięgu)</p>
-                            </div>
-                        </div>
-                        <div className="mt-6 flex flex-wrap gap-2">
-                            {["Warszawa", "Kraków", "Gdańsk", "Wrocław", "Poznań", "Łódź", "Szczecin", "Lublin", "Katowice", "Bydgoszcz", "Białystok", "Rzeszów"].map((city, i) => (
-                                <span key={i} className="px-3 py-1 bg-mint/10 text-mint-dark rounded-full text-sm font-display">
-                                    {city}
-                                </span>
-                            ))}
-                        </div>
-                    </motion.div>
-                    */}
-
                     {/* Testimonials Carousel */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -174,11 +114,11 @@ export default function Impact() {
                     >
                         <h3 className="text-2xl font-display font-bold text-graphite mb-8 flex items-center gap-3">
                             <Heart className="w-6 h-6 text-coral" />
-                            Opinie użytkowników
+                            {t.impact.testimonialsTitle}
                         </h3>
 
                         <div className="relative min-h-[250px]">
-                            {testimonials.map((testimonial, index) => (
+                            {t.impact.testimonials.map((testimonial, index) => (
                                 <motion.div
                                     key={index}
                                     initial={{ opacity: 0, x: 50 }}
@@ -191,7 +131,7 @@ export default function Impact() {
                                     className="absolute inset-0"
                                 >
                                     <p className="text-lg text-graphite/80 leading-relaxed mb-6">
-                                        "{testimonial.text}"
+                                        &quot;{testimonial.text}&quot;
                                     </p>
                                     <div>
                                         <p className="font-display font-bold text-graphite">{testimonial.author}</p>
@@ -203,7 +143,7 @@ export default function Impact() {
 
                         {/* Carousel Indicators */}
                         <div className="flex gap-2 mt-6 justify-center">
-                            {testimonials.map((_, index) => (
+                            {t.impact.testimonials.map((_, index) => (
                                 <button
                                     key={index}
                                     onClick={() => setCurrentTestimonial(index)}

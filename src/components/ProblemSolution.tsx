@@ -1,48 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { AlertCircle, CheckCircle, Smartphone, Heart, Shield, Users } from "lucide-react";
+import { AlertCircle, CheckCircle, Smartphone, Heart, Shield } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const problems = [
-    {
-        icon: AlertCircle,
-        title: "Samotność",
-        stat: "40%",
-        description: "seniorów czuje się osamotniona"
-    },
-    {
-        icon: Smartphone,
-        title: "Bariery technologiczne",
-        stat: "80%",
-        description: "ma trudności z nowymi urządzeniami"
-    },
-    {
-        icon: Heart,
-        title: "Zarządzanie lekami",
-        stat: "50%",
-        description: "zapomina o przyjęciu leków"
-    },
-];
-
-const solutions = [
-    {
-        icon: Smartphone,
-        title: "Aplikacja mobilna",
-        description: "Intuicyjna, z harmonogramem leków i skanerem kodów. Integruje się z bazą leków."
-    },
-    {
-        icon: Shield,
-        title: "Automatyczny dozownik",
-        description: "Modułowy mechanizm podający leki o ustalonej porze. Eliminuje błędy dawkowania."
-    },
-    {
-        icon: Heart,
-        title: "Opaska ratunkowa",
-        description: "Wykrywanie upadków, SOS i komunikaty głosowe. Działa niezależnie od smartfona."
-    },
-];
+const problemIcons = [AlertCircle, Smartphone, Heart];
+const solutionIcons = [Smartphone, Shield, Heart];
 
 export default function ProblemSolution() {
+    const { t } = useLanguage();
+
     return (
         <section id="problem-solution" className="relative py-24 md:py-32 px-6 md:px-12 bg-gradient-to-b from-cream to-cream-dark overflow-hidden">
             {/* Background Elements */}
@@ -58,10 +25,10 @@ export default function ProblemSolution() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl md:text-6xl font-display font-bold text-graphite mb-4">
-                        Problem <span className="text-coral">→</span> <span className="text-gradient-mint">Rozwiązanie</span>
+                        {t.problemSolution.title} <span className="text-coral">{t.problemSolution.arrow}</span> <span className="text-gradient-mint">{t.problemSolution.titleHighlight}</span>
                     </h2>
                     <p className="text-xl text-graphite/70 max-w-2xl mx-auto">
-                        Rozumiemy wyzwania, przed którymi stoją seniorzy i oferujemy konkretne rozwiązania
+                        {t.problemSolution.subtitle}
                     </p>
                 </motion.div>
 
@@ -77,13 +44,12 @@ export default function ProblemSolution() {
                         <div className="w-12 h-12 rounded-full bg-coral/20 flex items-center justify-center">
                             <AlertCircle className="w-6 h-6 text-coral" />
                         </div>
-                        <h3 className="text-3xl font-display font-bold text-graphite">Wyzwania</h3>
+                        <h3 className="text-3xl font-display font-bold text-graphite">{t.problemSolution.challengesHeader}</h3>
                     </motion.div>
 
                     {/* Problems List */}
-                    {problems.map((problem, index) => {
-                        const Icon = problem.icon;
-                        // Tailwind needs static classes to scan them
+                    {t.problemSolution.problems.map((problem, index) => {
+                        const Icon = problemIcons[index];
                         const rowClasses = ["lg:row-start-2", "lg:row-start-3", "lg:row-start-4"];
                         return (
                             <motion.div
@@ -121,12 +87,12 @@ export default function ProblemSolution() {
                         <div className="w-12 h-12 rounded-full bg-mint/20 flex items-center justify-center">
                             <CheckCircle className="w-6 h-6 text-mint" />
                         </div>
-                        <h3 className="text-3xl font-display font-bold text-graphite">Nasze Rozwiązania</h3>
+                        <h3 className="text-3xl font-display font-bold text-graphite">{t.problemSolution.solutionsHeader}</h3>
                     </motion.div>
 
                     {/* Solutions List */}
-                    {solutions.map((solution, index) => {
-                        const Icon = solution.icon;
+                    {t.problemSolution.solutions.map((solution, index) => {
+                        const Icon = solutionIcons[index];
                         const rowClasses = ["lg:row-start-2", "lg:row-start-3", "lg:row-start-4"];
                         return (
                             <motion.div
@@ -154,7 +120,7 @@ export default function ProblemSolution() {
                         );
                     })}
 
-                    {/* CTA - Removed as per request */}
+                    {/* CTA placeholder */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

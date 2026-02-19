@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Heart } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+    const { t } = useLanguage();
+
     return (
         <footer className="relative bg-graphite text-cream py-16 px-6 md:px-12 overflow-hidden">
             {/* Background Accent */}
@@ -18,18 +21,15 @@ export default function Footer() {
                             <h3 className="text-2xl font-display font-bold">SSS</h3>
                         </div>
                         <p className="text-cream/70 leading-relaxed">
-                            Senior Support System - łączymy technologię z ludzką empatią, aby wspierać seniorów w codziennym życiu.
+                            {t.footer.brandDescription}
                         </p>
                     </div>
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="font-display font-bold text-lg mb-4">Szybkie linki</h4>
+                        <h4 className="font-display font-bold text-lg mb-4">{t.footer.quickLinksTitle}</h4>
                         <ul className="space-y-2">
-                            {[
-                                { label: "O projekcie", href: "#about" },
-                                { label: "Zespół", href: "#team" },
-                            ].map((link, index) => (
+                            {t.footer.quickLinks.map((link, index) => (
                                 <li key={index}>
                                     <a
                                         href={link.href}
@@ -48,7 +48,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-cream/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-cream/60 text-sm">
-                        © {new Date().getFullYear()} SSS - Senior Support System. Wszystkie prawa zastrzeżone.
+                        © {new Date().getFullYear()} SSS - Senior Support System. {t.footer.copyright}
                     </p>
                     <motion.p
                         initial={{ opacity: 0, scale: 0.9 }}
@@ -58,7 +58,7 @@ export default function Footer() {
                     >
                         <Heart className="w-4 h-4 text-coral" />
                         <span className="text-cream/70">
-                            Projekt stworzony przez pasjonatów podczas <span className="text-coral font-semibold">obozu naukowego</span>
+                            {t.footer.campBadgePre} <span className="text-coral font-semibold">{t.footer.campBadgeHighlight}</span>
                         </span>
                     </motion.p>
                 </div>

@@ -3,8 +3,10 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Heart, Users } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
+    const { t } = useLanguage();
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -19,7 +21,7 @@ export default function Hero() {
             ref={containerRef}
             className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-cream transition-colors duration-300"
         >
-            {/* Dynamic Background Blobs - keeping user's preference */}
+            {/* Dynamic Background Blobs */}
             <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="blob-shape bg-purple w-[500px] h-[500px] top-[-100px] left-[-100px]" />
                 <div className="blob-shape bg-coral w-[400px] h-[400px] top-[20%] right-[-100px] animation-delay-2000" />
@@ -44,7 +46,7 @@ export default function Hero() {
                     className="opacity-0 mb-8 flex items-center gap-3 bg-white px-6 py-3 rounded-full border-2 border-purple/30 shadow-medium"
                 >
                     <Heart className="w-6 h-6 text-coral" />
-                    <span className="font-display font-semibold text-graphite">Senior Support System</span>
+                    <span className="font-display font-semibold text-graphite">{t.hero.badge}</span>
                     <Users className="w-6 h-6 text-mint" />
                 </motion.div>
 
@@ -55,9 +57,9 @@ export default function Hero() {
                     transition={{ delay: 0.2, duration: 0.8 }}
                     className="opacity-0 text-5xl md:text-7xl lg:text-8xl font-display font-bold text-graphite mb-6 leading-tight"
                 >
-                    Wspieramy Seniorów.{" "}
+                    {t.hero.headlinePart1}{" "}
                     <span className="text-gradient-purple">
-                        Łączymy Pokolenia.
+                        {t.hero.headlinePart2}
                     </span>
                 </motion.h1>
 
@@ -68,11 +70,8 @@ export default function Hero() {
                     transition={{ delay: 0.4, duration: 0.8 }}
                     className="opacity-0 text-xl md:text-2xl text-graphite/80 mb-12 max-w-3xl font-sans leading-relaxed"
                 >
-                    Senior Support System to środowisko technologiczne, które w sposób kompleksowy wspiera codzienność osób starszych.
-                    Działa cicho, przewidywalnie i niezawodnie — tak, aby senior mógł skupić się na tym, co w życiu najważniejsze.
+                    {t.hero.description}
                 </motion.p>
-
-                {/* CTA Buttons - Removed as per request */}
 
                 {/* Stats Preview */}
                 <motion.div
@@ -81,11 +80,7 @@ export default function Hero() {
                     transition={{ delay: 0.8, duration: 0.8 }}
                     className="opacity-0 mt-16 grid grid-cols-3 gap-8 md:gap-16"
                 >
-                    {[
-                        { number: "40+", label: "pozytywnych opinii seniorów" },
-                        { number: "30h", label: "konsultacji pomysłów na rozwój" },
-                        { number: "1000+", label: "godzin pracy" },
-                    ].map((stat, index) => (
+                    {t.hero.stats.map((stat, index) => (
                         <div key={index} className="text-center">
                             <div className="text-3xl md:text-4xl font-display font-bold text-gradient-purple mb-2">
                                 {stat.number}
@@ -105,7 +100,7 @@ export default function Hero() {
                 transition={{ delay: 1.5, duration: 1 }}
                 className="opacity-0 absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
             >
-                <span className="text-xs uppercase tracking-widest text-graphite/60 font-accent">Przewiń w dół</span>
+                <span className="text-xs uppercase tracking-widest text-graphite/60 font-accent">{t.hero.scrollDown}</span>
                 <motion.div
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
